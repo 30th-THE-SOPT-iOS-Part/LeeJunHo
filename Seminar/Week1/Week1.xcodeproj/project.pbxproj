@@ -13,6 +13,8 @@
 		EB7FB41D27F81C9800675CED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB41B27F81C9800675CED /* Main.storyboard */; };
 		EB7FB41F27F81C9900675CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB41E27F81C9900675CED /* Assets.xcassets */; };
 		EB7FB42227F81C9900675CED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB42027F81C9900675CED /* LaunchScreen.storyboard */; };
+		EB7FB46227F8334600675CED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB46127F8334600675CED /* FirstViewController.swift */; };
+		EB7FB46427F8335300675CED /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB46327F8335300675CED /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		EB7FB41E27F81C9900675CED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB7FB42127F81C9900675CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB7FB42327F81C9A00675CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB7FB46127F8334600675CED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		EB7FB46327F8335300675CED /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				EB7FB41E27F81C9900675CED /* Assets.xcassets */,
 				EB7FB42027F81C9900675CED /* LaunchScreen.storyboard */,
 				EB7FB42327F81C9A00675CED /* Info.plist */,
+				EB7FB46127F8334600675CED /* FirstViewController.swift */,
+				EB7FB46327F8335300675CED /* SecondViewController.swift */,
 			);
 			path = Week1;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 				EB7FB41A27F81C9800675CED /* ViewController.swift in Sources */,
 				EB7FB41627F81C9800675CED /* AppDelegate.swift in Sources */,
 				EB7FB41827F81C9800675CED /* SceneDelegate.swift in Sources */,
+				EB7FB46427F8335300675CED /* SecondViewController.swift in Sources */,
+				EB7FB46227F8334600675CED /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
