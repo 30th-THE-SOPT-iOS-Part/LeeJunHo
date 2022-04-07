@@ -10,19 +10,15 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol LoginVCBindable {
-    
-}
-
-class LoginVC: BaseVC<LoginVCBindable> {
+class LoginVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        print("hi")
     }
     
-    override func bind(_ viewModel: LoginVCBindable) {
+    override func bind() {
         print("hi")
     }
     

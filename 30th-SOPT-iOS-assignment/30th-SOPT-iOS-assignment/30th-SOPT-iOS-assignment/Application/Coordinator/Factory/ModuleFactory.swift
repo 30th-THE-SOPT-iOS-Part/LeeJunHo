@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+protocol ModuleFactoryProtocol {
+  
+}
+
+final class ModuleFactory: ModuleFactoryProtocol{
+
+}
