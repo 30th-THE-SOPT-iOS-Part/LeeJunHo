@@ -16,6 +16,7 @@
 		EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870127FF8505007016F0 /* LoginViewModel.swift */; };
 		EBC1870427FF8665007016F0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870327FF8665007016F0 /* UIView+.swift */; };
 		EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870627FF8783007016F0 /* ModuleFactory.swift */; };
+		EBC1870A27FF8E2E007016F0 /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870927FF8E2E007016F0 /* ImageLiterals.swift */; };
 		EBFEA38727FF736C003FADB7 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38627FF736C003FADB7 /* RxCocoa */; };
 		EBFEA38927FF736C003FADB7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38827FF736C003FADB7 /* RxRelay */; };
 		EBFEA38B27FF736C003FADB7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38A27FF736C003FADB7 /* RxSwift */; };
@@ -34,6 +35,7 @@
 		EBC1870127FF8505007016F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EBC1870327FF8665007016F0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EBC1870627FF8783007016F0 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
+		EBC1870927FF8E2E007016F0 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 		EBFEA39927FF7705003FADB7 /* Literal */ = {
 			isa = PBXGroup;
 			children = (
+				EBC1870927FF8E2E007016F0 /* ImageLiterals.swift */,
 			);
 			path = Literal;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC1870427FF8665007016F0 /* UIView+.swift in Sources */,
+				EBC1870A27FF8E2E007016F0 /* ImageLiterals.swift in Sources */,
 				EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */,
 				EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */,
 				EBC186FD27FF7FA9007016F0 /* LoginVC.swift in Sources */,

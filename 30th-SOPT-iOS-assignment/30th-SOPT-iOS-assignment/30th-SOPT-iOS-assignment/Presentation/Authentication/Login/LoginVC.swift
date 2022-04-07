@@ -15,7 +15,6 @@ class LoginVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("hi")
     }
     
     override func bind() {
