@@ -15,6 +15,8 @@ final class LoginVC: BaseVC {
     
     // MARK: - Properties
     
+    var viewModel = LoginViewModel()
+    
     private let logoImageView: UIImageView = {
         let iv = UIImageView()
         iv.image = ImageLiterals.Authetication.instaBlackLogo
@@ -33,9 +35,10 @@ final class LoginVC: BaseVC {
         return tf
     }()
     
-    private let loginButton: AuthButton = {
+    private lazy var loginButton: AuthButton = {
         let bt = AuthButton()
         bt.setTitle("로그인", for: .normal)
+        bt.isEnabled = false
         return bt
     }()
     
@@ -44,11 +47,26 @@ final class LoginVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
     }
     
     // MARK: - Bind
     
     override func bind() {
+        let input = LoginViewModel.Input(
+            emailTextFieldDidChange: emailTextField.rx.text.orEmpty.asObservable(),
+            passwordTextFieldDidChange: passwordTextField.rx.text.orEmpty.asObservable()
+        )
+        
+        let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
+        
+        output.loginButtonEnable
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isEnabled in
+                print("머함")
+                self?.loginButton.isEnabled = isEnabled
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - @objc Methods
