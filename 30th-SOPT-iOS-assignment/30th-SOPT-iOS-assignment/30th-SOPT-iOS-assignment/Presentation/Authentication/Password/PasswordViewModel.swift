@@ -1,5 +1,5 @@
 //
-//  LoginViewModel.swift
+//  PasswordViewModel.swift
 //  30th-SOPT-iOS-assignment
 //
 //  Created by Junho Lee on 2022/04/08.
@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-final class LoginViewModel {
+final class PasswordViewModel {
     struct Input {
         let emailTextFieldDidChange: Observable<String>
         let passwordTextFieldDidChange: Observable<String>

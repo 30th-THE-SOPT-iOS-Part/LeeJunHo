@@ -17,6 +17,12 @@
 		EBC1870427FF8665007016F0 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870327FF8665007016F0 /* UIView+.swift */; };
 		EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870627FF8783007016F0 /* ModuleFactory.swift */; };
 		EBC1870A27FF8E2E007016F0 /* ImageLiterals.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870927FF8E2E007016F0 /* ImageLiterals.swift */; };
+		EBC1870C27FF8F4C007016F0 /* UsernameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870B27FF8F4C007016F0 /* UsernameVC.swift */; };
+		EBC1870E27FF8F53007016F0 /* UsernameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870D27FF8F53007016F0 /* UsernameViewModel.swift */; };
+		EBC1871027FF8F5D007016F0 /* PasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870F27FF8F5D007016F0 /* PasswordVC.swift */; };
+		EBC1871227FF8F64007016F0 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1871127FF8F64007016F0 /* PasswordViewModel.swift */; };
+		EBC1871A27FF9128007016F0 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1871927FF9128007016F0 /* AuthButton.swift */; };
+		EBC1871C27FF9130007016F0 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1871B27FF9130007016F0 /* AuthTextField.swift */; };
 		EBFEA38727FF736C003FADB7 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38627FF736C003FADB7 /* RxCocoa */; };
 		EBFEA38927FF736C003FADB7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38827FF736C003FADB7 /* RxRelay */; };
 		EBFEA38B27FF736C003FADB7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38A27FF736C003FADB7 /* RxSwift */; };
@@ -36,6 +42,12 @@
 		EBC1870327FF8665007016F0 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		EBC1870627FF8783007016F0 /* ModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactory.swift; sourceTree = "<group>"; };
 		EBC1870927FF8E2E007016F0 /* ImageLiterals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLiterals.swift; sourceTree = "<group>"; };
+		EBC1870B27FF8F4C007016F0 /* UsernameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameVC.swift; sourceTree = "<group>"; };
+		EBC1870D27FF8F53007016F0 /* UsernameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameViewModel.swift; sourceTree = "<group>"; };
+		EBC1870F27FF8F5D007016F0 /* PasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordVC.swift; sourceTree = "<group>"; };
+		EBC1871127FF8F64007016F0 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		EBC1871927FF9128007016F0 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		EBC1871B27FF9130007016F0 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,16 +104,20 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		EBC186FF27FF84C5007016F0 /* UserName */ = {
+		EBC186FF27FF84C5007016F0 /* Username */ = {
 			isa = PBXGroup;
 			children = (
+				EBC1870B27FF8F4C007016F0 /* UsernameVC.swift */,
+				EBC1870D27FF8F53007016F0 /* UsernameViewModel.swift */,
 			);
-			path = UserName;
+			path = Username;
 			sourceTree = "<group>";
 		};
 		EBC1870027FF84DE007016F0 /* Password */ = {
 			isa = PBXGroup;
 			children = (
+				EBC1870F27FF8F5D007016F0 /* PasswordVC.swift */,
+				EBC1871127FF8F64007016F0 /* PasswordViewModel.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -119,6 +135,23 @@
 			children = (
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		EBC1871327FF9098007016F0 /* UIComponent */ = {
+			isa = PBXGroup;
+			children = (
+				EBC1871827FF9120007016F0 /* Auth */,
+			);
+			path = UIComponent;
+			sourceTree = "<group>";
+		};
+		EBC1871827FF9120007016F0 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				EBC1871927FF9128007016F0 /* AuthButton.swift */,
+				EBC1871B27FF9130007016F0 /* AuthTextField.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		EBFEA38F27FF7681003FADB7 /* Global */ = {
@@ -286,7 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC186FE27FF84B2007016F0 /* Login */,
-				EBC186FF27FF84C5007016F0 /* UserName */,
+				EBC186FF27FF84C5007016F0 /* Username */,
 				EBC1870027FF84DE007016F0 /* Password */,
 			);
 			path = Authentication;
@@ -330,6 +363,7 @@
 		EBFEA3A827FF7A94003FADB7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				EBC1871327FF9098007016F0 /* UIComponent */,
 				EBC186FA27FF7B37007016F0 /* BaseVC.swift */,
 			);
 			path = Common;
@@ -415,12 +449,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBC1870E27FF8F53007016F0 /* UsernameViewModel.swift in Sources */,
+				EBC1871A27FF9128007016F0 /* AuthButton.swift in Sources */,
+				EBC1871227FF8F64007016F0 /* PasswordViewModel.swift in Sources */,
 				EBC1870427FF8665007016F0 /* UIView+.swift in Sources */,
 				EBC1870A27FF8E2E007016F0 /* ImageLiterals.swift in Sources */,
+				EBC1871027FF8F5D007016F0 /* PasswordVC.swift in Sources */,
 				EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */,
 				EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */,
 				EBC186FD27FF7FA9007016F0 /* LoginVC.swift in Sources */,
+				EBC1871C27FF9130007016F0 /* AuthTextField.swift in Sources */,
 				EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */,
+				EBC1870C27FF8F4C007016F0 /* UsernameVC.swift in Sources */,
 				EBC186FB27FF7B37007016F0 /* BaseVC.swift in Sources */,
 				EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */,
 			);
