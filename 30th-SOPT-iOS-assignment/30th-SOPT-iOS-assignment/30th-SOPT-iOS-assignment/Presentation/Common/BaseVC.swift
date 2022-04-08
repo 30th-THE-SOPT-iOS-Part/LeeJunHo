@@ -19,6 +19,7 @@ class BaseVC: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)
+        view.backgroundColor = .white
         
         initialize()
     }

@@ -23,6 +23,8 @@ final class LoginVC: BaseVC {
         return iv
     }()
     
+    private let myTextField = UITextField()
+    
     private let emailTextField: AuthTextField = {
         let tf = AuthTextField()
         tf.setPlaceHolder(placeHolder: "sopt_iOS")
@@ -153,8 +155,4 @@ final class LoginVC: BaseVC {
             make.top.equalTo(loginButton.snp.bottom).offset(30)
         }
     }
-}
-
-extension LoginVC {
-
 }

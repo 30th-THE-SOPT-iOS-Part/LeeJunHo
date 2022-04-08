@@ -45,7 +45,10 @@ final class UsernameVC: BaseVC {
     private lazy var nextButton: AuthButton = {
         let bt = AuthButton()
         bt.setTitle("다음", for: .normal)
-        bt.isEnabled = false
+        bt.addAction(UIAction(handler: { _ in
+            self.pushPasswordVC()
+        }), for: .touchUpInside)
+        bt.isEnabled = true
         return bt
     }()
     
@@ -59,6 +62,15 @@ final class UsernameVC: BaseVC {
     // MARK: - Bind
     
     override func bind() {
+    }
+    
+    // MARK: - Custom Methods
+    
+    private func pushPasswordVC() {
+        let nextVC = PasswordVC(user: User(email: "",
+                                     username: usernameTextField.text,
+                                     password: ""))
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     // MARK: - @objc Methods
@@ -93,8 +105,4 @@ final class UsernameVC: BaseVC {
             make.top.equalTo(usernameTextField.snp.bottom).offset(20)
         }
     }
-}
-
-extension LoginVC {
-
 }
