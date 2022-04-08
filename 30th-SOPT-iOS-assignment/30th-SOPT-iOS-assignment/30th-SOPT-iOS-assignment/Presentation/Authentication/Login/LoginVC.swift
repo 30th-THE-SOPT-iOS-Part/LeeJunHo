@@ -48,6 +48,9 @@ final class LoginVC: BaseVC {
     private lazy var loginButton: AuthButton = {
         let bt = AuthButton()
         bt.setTitle("로그인", for: .normal)
+        bt.addAction(UIAction(handler: { _ in
+            self.presentWelcomeVC()
+        }), for: .touchUpInside)
         bt.isEnabled = false
         return bt
     }()
@@ -100,25 +103,37 @@ final class LoginVC: BaseVC {
         
         output.loginButtonEnable
             .asDriver(onErrorJustReturn: true)
-            .drive(onNext: { [weak self] isEnable in
-                self?.loginButton.isEnabled = isEnable
+            .drive(onNext: { [weak self] isEnabled in
+                self?.loginButton.isEnabled = isEnabled
             })
             .disposed(by: disposeBag)
     }
     
     // MARK: - Custom Methods
     
+    private func presentWelcomeVC() {
+        // TODO: - 동일 택필에서 email 형식인지 username 형식인지 판단하는 비즈니스 로직 뷰모델에 작성하기
+        let nextVC = WelcomeVC(user: User(email: "",
+                                          username: emailTextField.text,
+                                          password: passwordTextField.text))
+        nextVC.modalPresentationStyle = .overFullScreen
+        self.present(nextVC, animated: true)
+    }
+    
     private func pushUsernameVC() {
         let nextVC = UsernameVC()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
-    // MARK: - @objc Methods
-    
     // MARK: - UI & Layout
     
+    override func initialize() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = .black
+    }
+    
     override func configUI() {
-        setupBaseNavigationBar(backgroundColor: .white, titleColor: .white, isTranslucent: false, tintColor: .systemBlue)
+
     }
     
     override func setLayout() {

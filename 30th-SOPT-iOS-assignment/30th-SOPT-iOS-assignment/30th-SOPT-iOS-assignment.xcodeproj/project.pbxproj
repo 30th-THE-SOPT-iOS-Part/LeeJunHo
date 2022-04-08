@@ -11,6 +11,10 @@
 		EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */; };
 		EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */; };
 		EB0C3AF1280063E3009ACE52 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF0280063E2009ACE52 /* User.swift */; };
+		EB0C3AF3280094A0009ACE52 /* BaseNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF2280094A0009ACE52 /* BaseNVC.swift */; };
+		EB0C3AF528009A10009ACE52 /* UsernameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF428009A10009ACE52 /* UsernameUseCase.swift */; };
+		EB0C3AF728009A18009ACE52 /* PasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF628009A18009ACE52 /* PasswordUseCase.swift */; };
+		EB0C3AF928009A20009ACE52 /* WelcomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF828009A20009ACE52 /* WelcomeUseCase.swift */; };
 		EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43527F81F1100675CED /* AppDelegate.swift */; };
 		EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43727F81F1100675CED /* SceneDelegate.swift */; };
 		EB7FB43F27F81F1200675CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB43E27F81F1200675CED /* Assets.xcassets */; };
@@ -38,6 +42,10 @@
 		EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		EB0C3AF0280063E2009ACE52 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EB0C3AF2280094A0009ACE52 /* BaseNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNVC.swift; sourceTree = "<group>"; };
+		EB0C3AF428009A10009ACE52 /* UsernameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameUseCase.swift; sourceTree = "<group>"; };
+		EB0C3AF628009A18009ACE52 /* PasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUseCase.swift; sourceTree = "<group>"; };
+		EB0C3AF828009A20009ACE52 /* WelcomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeUseCase.swift; sourceTree = "<group>"; };
 		EB7FB43227F81F1100675CED /* 30th-SOPT-iOS-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30th-SOPT-iOS-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7FB43527F81F1100675CED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7FB43727F81F1100675CED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +86,7 @@
 			children = (
 				EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */,
 				EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */,
+				EB0C3AF828009A20009ACE52 /* WelcomeUseCase.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 			children = (
 				EBC1870B27FF8F4C007016F0 /* UsernameVC.swift */,
 				EBC1870D27FF8F53007016F0 /* UsernameViewModel.swift */,
+				EB0C3AF428009A10009ACE52 /* UsernameUseCase.swift */,
 			);
 			path = Username;
 			sourceTree = "<group>";
@@ -144,6 +154,7 @@
 			children = (
 				EBC1870F27FF8F5D007016F0 /* PasswordVC.swift */,
 				EBC1871127FF8F64007016F0 /* PasswordViewModel.swift */,
+				EB0C3AF628009A18009ACE52 /* PasswordUseCase.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -393,6 +404,7 @@
 			children = (
 				EBC1871327FF9098007016F0 /* UIComponent */,
 				EBC186FA27FF7B37007016F0 /* BaseVC.swift */,
+				EB0C3AF2280094A0009ACE52 /* BaseNVC.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -484,13 +496,17 @@
 				EBC1870A27FF8E2E007016F0 /* ImageLiterals.swift in Sources */,
 				EBC1871027FF8F5D007016F0 /* PasswordVC.swift in Sources */,
 				EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */,
+				EB0C3AF3280094A0009ACE52 /* BaseNVC.swift in Sources */,
 				EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */,
+				EB0C3AF528009A10009ACE52 /* UsernameUseCase.swift in Sources */,
 				EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */,
 				EBC186FD27FF7FA9007016F0 /* LoginVC.swift in Sources */,
+				EB0C3AF928009A20009ACE52 /* WelcomeUseCase.swift in Sources */,
 				EBC1871C27FF9130007016F0 /* AuthTextField.swift in Sources */,
 				EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */,
 				EBC1870C27FF8F4C007016F0 /* UsernameVC.swift in Sources */,
 				EBC186FB27FF7B37007016F0 /* BaseVC.swift in Sources */,
+				EB0C3AF728009A18009ACE52 /* PasswordUseCase.swift in Sources */,
 				EB0C3AF1280063E3009ACE52 /* User.swift in Sources */,
 				EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */,
 				EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */,

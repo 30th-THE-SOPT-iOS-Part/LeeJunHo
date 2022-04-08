@@ -77,8 +77,12 @@ final class UsernameVC: BaseVC {
     
     // MARK: - UI & Layout
     
+    override func initialize() {
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = .black
+    }
+    
     override func configUI() {
-        
     }
     
     override func setLayout() {

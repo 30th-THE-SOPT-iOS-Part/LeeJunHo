@@ -5,8 +5,6 @@
 //  Created by Junho Lee on 2022/04/08.
 //
 
-import Foundation
-
 import RxSwift
 
 protocol LoginUseCase {
@@ -37,10 +35,16 @@ final class DefaultLoginUseCase: LoginUseCase {
     }
     
     internal func activateLoginButton() {
-        if (!emailText.isEmpty && !passwordText.isEmpty) {
-            validationState.onNext(true)
-        } else {
+        guard emailText.isEmpty else {
             validationState.onNext(false)
+            return
         }
+        
+        guard passwordText.isEmpty else {
+            validationState.onNext(false)
+            return
+        }
+        
+        validationState.onNext(true)
     }
 }

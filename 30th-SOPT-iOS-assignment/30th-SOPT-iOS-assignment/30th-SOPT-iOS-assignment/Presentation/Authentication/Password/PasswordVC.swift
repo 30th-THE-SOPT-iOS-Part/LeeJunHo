@@ -85,7 +85,8 @@ final class PasswordVC: BaseVC {
     // MARK: - UI & Layout
     
     override func configUI() {
-        
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
+        self.navigationItem.backBarButtonItem?.tintColor = .black
     }
     
     override func setLayout() {
