@@ -15,6 +15,8 @@ final class PasswordVC: BaseVC {
     
     // MARK: - Properties
     
+    let viewModel = PasswordViewModel()
+    
     private var user: User
     
     private let titleLabel: UILabel = {
@@ -50,7 +52,7 @@ final class PasswordVC: BaseVC {
         bt.addAction(UIAction(handler: { _ in
             self.presentWelcomeVC()
         }), for: .touchUpInside)
-        bt.isEnabled = true
+        bt.isEnabled = false
         return bt
     }()
     
@@ -65,9 +67,27 @@ final class PasswordVC: BaseVC {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        bind()
+    }
+    
     // MARK: - Bind
     
     override func bind() {
+        let input = PasswordViewModel.Input(
+            passwordTextFieldDidChange: passwordTextField.rx.text.orEmpty.asObservable()
+        )
+        
+        let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
+        
+        output.nextButtonEnabled
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isEnabled in
+                self?.nextButton.isEnabled = isEnabled
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Custom Methods

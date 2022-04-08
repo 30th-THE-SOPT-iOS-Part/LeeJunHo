@@ -8,27 +8,43 @@
 import RxSwift
 import RxCocoa
 
+// MARK: - Usecase 이용 뷰모델
 final class UsernameViewModel {
     struct Input {
-        let emailTextFieldDidChange: Observable<String>
-        let passwordTextFieldDidChange: Observable<String>
+        let usernameTextFieldDidChange: Observable<String>
     }
-    
+
     struct Output {
+        var nextButtonEnabled = PublishSubject<Bool>()
     }
-    
+
+    // MARK: - Properties
+    private let usernameUseCase = DefaultUsernameUseCase()
+
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
         self.configureInput(input, disposeBag: disposeBag)
         return createOutput(from: input, disposeBag: disposeBag)
     }
-    
+
     private func configureInput(_ input: Input, disposeBag: DisposeBag) {
-        
+        input.usernameTextFieldDidChange
+            .subscribe(onNext: { [weak self] text in
+                self?.usernameUseCase.setUsernameText(usernameText: text)
+            })
+            .disposed(by: disposeBag)
     }
-    
+
     private func createOutput(from input: Input, disposeBag: DisposeBag) -> Output {
         let output = Output()
-        
+
+        usernameUseCase.validationState
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { activation in
+                output.nextButtonEnabled.onNext(activation)
+            })
+            .disposed(by: disposeBag)
+
         return output
     }
 }
+

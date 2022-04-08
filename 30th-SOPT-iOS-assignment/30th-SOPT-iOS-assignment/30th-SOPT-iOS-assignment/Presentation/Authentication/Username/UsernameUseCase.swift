@@ -5,25 +5,32 @@
 //  Created by Junho Lee on 2022/04/09.
 //
 
-import UIKit
+import RxSwift
 
-class UsernameUseCase: UIViewController {
+protocol UsernameUseCase {
+    var usernameText: String { get set }
+    var validationState: PublishSubject<Bool> { get set }
+    func setUsernameText(usernameText: String)
+    func activateNextButton()
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+final class DefaultUsernameUseCase: UsernameUseCase {
 
-        // Do any additional setup after loading the view.
+    var usernameText: String = ""
+    
+    var validationState = PublishSubject<Bool>()
+        
+    func setUsernameText(usernameText: String) {
+        self.usernameText = usernameText
+        self.activateNextButton()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    internal func activateNextButton() {
+        guard !usernameText.isEmpty else {
+            validationState.onNext(false)
+            return
+        }
+        
+        validationState.onNext(true)
     }
-    */
-
 }
