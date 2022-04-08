@@ -11,6 +11,34 @@ import SnapKit
 
 final class AuthTextField: UITextField {
     
+    private lazy var eyeButton: UIButton = {
+        let bt = UIButton()
+        
+        // 심화과제
+        bt.setImage(ImageLiterals.Authetication.shownEyeIcon, for: .normal)
+        bt.setImage(ImageLiterals.Authetication.hiddenEyeIcon, for: .selected)
+        bt.isSelected = true
+        bt.addAction(UIAction(handler: { _ in
+            bt.isSelected.toggle()
+            self.isSecureTextEntry = bt.isSelected
+        }), for: .touchUpInside)
+        
+        return bt
+    }()
+    
+    private lazy var clearButton: UIButton = {
+        let bt = UIButton()
+        
+        // 도전과제
+        bt.setImage(UIImage(systemName: "xmark.circle.fill"), for: .normal)
+        bt.tintColor = .lightGray
+        bt.addAction(UIAction(handler: { _ in
+            self.text = ""
+        }), for: .touchUpInside)
+        
+        return bt
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -24,17 +52,44 @@ final class AuthTextField: UITextField {
     
     // MARK: - Public Methods
     
-    public func setPlaceHolder(placeHolder: String) {
+    internal func setPlaceHolder(placeHolder: String) {
         self.placeholder = placeHolder
     }
     
-    // MARK: - Private Methods
+    internal func setEyeButton() {
+        let eyeButtonView = UIView()
+        eyeButtonView.addSubview(eyeButton)
+        eyeButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(15)
+        }
+        rightViewMode = .always
+        rightView = eyeButtonView
+        rightView?.snp.makeConstraints({ make in
+            make.width.height.equalTo(40)
+        })
+        isSecureTextEntry = true
+        eyeButton.isHidden = false
+    }
     
-    private func changeAppearance() {
-        if isEnabled {
-            backgroundColor = .systemBlue
+    internal func setClearButton() {
+        let clearButtonView = UIView()
+        clearButtonView.addSubview(clearButton)
+        clearButton.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(15)
+        }
+        rightView = clearButtonView
+        rightView?.snp.makeConstraints({ make in
+            make.width.height.equalTo(40)
+        })
+    }
+    
+    internal func setClearButton(hidden: Bool) {
+        if hidden {
+            rightViewMode = .never
         } else {
-            backgroundColor = .systemBlue.withAlphaComponent(0.4)
+            rightViewMode = .whileEditing
         }
     }
     
@@ -43,9 +98,13 @@ final class AuthTextField: UITextField {
     private func setUI() {
         isSelected = false
         
-        layer.borderColor = UIColor.lightGray.cgColor
+        let leftSpacer = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 0))
+        leftView = leftSpacer
+        leftViewMode = .always
+        
+        layer.borderColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
         layer.borderWidth = 0.5
-        backgroundColor = .lightGray.withAlphaComponent(0.8)
+        backgroundColor = .lightGray.withAlphaComponent(0.1)
         layer.cornerRadius = 5
     }
     
@@ -55,9 +114,4 @@ final class AuthTextField: UITextField {
             make.height.equalTo(50)
         }
     }
-}
-
-extension AuthButton {
-    
-
 }
