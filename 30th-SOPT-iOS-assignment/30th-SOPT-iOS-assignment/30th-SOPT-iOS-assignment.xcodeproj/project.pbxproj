@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AE727FFDCB9009ACE52 /* LoginUseCase.swift */; };
+		EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */; };
+		EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */; };
 		EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43527F81F1100675CED /* AppDelegate.swift */; };
 		EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43727F81F1100675CED /* SceneDelegate.swift */; };
 		EB7FB43F27F81F1200675CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB43E27F81F1200675CED /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		EB0C3AE727FFDCB9009ACE52 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		EB7FB43227F81F1100675CED /* 30th-SOPT-iOS-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30th-SOPT-iOS-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7FB43527F81F1100675CED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7FB43727F81F1100675CED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB0C3AE928001102009ACE52 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */,
+				EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		EB7FB42927F81F1100675CED = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +337,7 @@
 				EBC186FE27FF84B2007016F0 /* Login */,
 				EBC186FF27FF84C5007016F0 /* Username */,
 				EBC1870027FF84DE007016F0 /* Password */,
+				EB0C3AE928001102009ACE52 /* Welcome */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -460,6 +474,7 @@
 				EBC1871027FF8F5D007016F0 /* PasswordVC.swift in Sources */,
 				EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */,
 				EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */,
+				EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */,
 				EBC186FD27FF7FA9007016F0 /* LoginVC.swift in Sources */,
 				EBC1871C27FF9130007016F0 /* AuthTextField.swift in Sources */,
 				EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */,
@@ -467,6 +482,7 @@
 				EBC186FB27FF7B37007016F0 /* BaseVC.swift in Sources */,
 				EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */,
 				EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */,
+				EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

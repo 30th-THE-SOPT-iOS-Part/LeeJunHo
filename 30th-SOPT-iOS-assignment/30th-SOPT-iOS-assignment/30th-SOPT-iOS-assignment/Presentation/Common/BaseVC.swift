@@ -67,4 +67,26 @@ class BaseVC: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    /*
+     각 NavigationController에 대해 NavigationBar 설정
+     */
+    func setupBaseNavigationBar(backgroundColor: UIColor = .white,
+                                titleColor: UIColor = .black,
+                                isTranslucent: Bool = false,
+                                tintColor: UIColor = .black) {
+        guard let navigationBar = navigationController?.navigationBar else { return }
+        let appearance = UINavigationBarAppearance()
+        let font = UIFont.systemFont(ofSize: 16)
+        
+        appearance.backgroundColor = backgroundColor
+        appearance.titleTextAttributes = [.foregroundColor: titleColor, .font: font]
+        appearance.shadowColor = .clear
+        
+        navigationBar.standardAppearance = appearance
+        navigationBar.compactAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.isTranslucent = isTranslucent
+        navigationBar.tintColor = tintColor
+    }
 }

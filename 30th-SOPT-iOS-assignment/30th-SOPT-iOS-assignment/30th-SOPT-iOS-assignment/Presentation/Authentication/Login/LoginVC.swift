@@ -35,11 +35,47 @@ final class LoginVC: BaseVC {
         return tf
     }()
     
+    private lazy var passwordLoseButton: UIButton = {
+        let bt = UIButton()
+        bt.setTitle("비밀번호를 잊으셨나요?", for: .normal)
+        bt.setTitleColor(UIColor.systemBlue, for: .normal)
+        bt.titleLabel?.font = .systemFont(ofSize: 13)
+        return bt
+    }()
+    
     private lazy var loginButton: AuthButton = {
         let bt = AuthButton()
         bt.setTitle("로그인", for: .normal)
         bt.isEnabled = false
         return bt
+    }()
+    
+    private let registrationLabel: UILabel = {
+        let lb = UILabel()
+        lb.text = "계정이 없으신가요?"
+        lb.textColor = .lightGray
+        lb.font = .systemFont(ofSize: 14)
+        return lb
+    }()
+    
+    private lazy var registrationButton: UIButton = {
+        let bt = UIButton()
+        bt.setTitle("가입하기", for: .normal)
+        bt.setTitleColor(UIColor.systemBlue, for: .normal)
+        bt.titleLabel?.font = .systemFont(ofSize: 14)
+        bt.addAction(UIAction(handler: { _ in
+            self.pushUsernameVC()
+        }), for: .touchUpInside)
+        return bt
+    }()
+    
+    private lazy var registrationStackView: UIStackView = {
+        let st = UIStackView()
+        st.axis = .horizontal
+        st.addArrangedSubview(registrationLabel)
+        st.addArrangedSubview(registrationButton)
+        st.spacing = 3
+        return st
     }()
     
     // MARK: - Life Cycles
@@ -68,13 +104,24 @@ final class LoginVC: BaseVC {
             .disposed(by: disposeBag)
     }
     
+    // MARK: - Custom Methods
+    
+    private func pushUsernameVC() {
+        let nextVC = UsernameVC()
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
     // MARK: - @objc Methods
     
     // MARK: - UI & Layout
     
+    override func configUI() {
+        setupBaseNavigationBar(backgroundColor: .white, titleColor: .white, isTranslucent: false, tintColor: .systemBlue)
+    }
+    
     override func setLayout() {
         view.addSubviews(logoImageView, emailTextField, passwordTextField,
-                         loginButton)
+                         passwordLoseButton, loginButton, registrationStackView)
         
         logoImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -91,9 +138,19 @@ final class LoginVC: BaseVC {
             make.top.equalTo(emailTextField.snp.bottom).offset(5)
         }
         
+        passwordLoseButton.snp.makeConstraints { make in
+            make.trailing.equalTo(passwordTextField.snp.trailing)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(10)
+        }
+        
         loginButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(passwordTextField.snp.bottom).offset(30)
+            make.top.equalTo(passwordLoseButton.snp.bottom).offset(30)
+        }
+        
+        registrationStackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(loginButton.snp.bottom).offset(30)
         }
     }
 }
