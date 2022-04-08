@@ -7,9 +7,12 @@
 
 import UIKit
 
+import RxSwift
 import SnapKit
 
 final class AuthTextField: UITextField {
+    
+    var clearButtonTapped = PublishSubject<Bool>()
     
     private lazy var eyeButton: UIButton = {
         let bt = UIButton()
@@ -34,6 +37,7 @@ final class AuthTextField: UITextField {
         bt.tintColor = .lightGray
         bt.addAction(UIAction(handler: { _ in
             self.text = ""
+            self.clearButtonTapped.onNext(false)
         }), for: .touchUpInside)
         
         return bt

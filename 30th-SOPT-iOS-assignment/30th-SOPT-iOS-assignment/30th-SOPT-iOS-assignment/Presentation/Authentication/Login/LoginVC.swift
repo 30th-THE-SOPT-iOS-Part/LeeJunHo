@@ -122,6 +122,13 @@ final class LoginVC: BaseVC {
                 self?.emailTextField.setClearButton(hidden: isHidden)
             })
             .disposed(by: disposeBag)
+        
+        emailTextField.clearButtonTapped
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isEnabled in
+                self?.loginButton.isEnabled = isEnabled
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Custom Methods
