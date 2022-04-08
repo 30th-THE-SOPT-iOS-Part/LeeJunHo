@@ -15,7 +15,7 @@ final class LoginVC: BaseVC {
     
     // MARK: - Properties
     
-    var viewModel = LoginViewModel()
+    let viewModel = LoginViewModel()
     
     private let logoImageView: UIImageView = {
         let iv = UIImageView()
@@ -62,9 +62,8 @@ final class LoginVC: BaseVC {
         
         output.loginButtonEnable
             .asDriver(onErrorJustReturn: true)
-            .drive(onNext: { [weak self] isEnabled in
-                print("머함")
-                self?.loginButton.isEnabled = isEnabled
+            .drive(onNext: { [weak self] isEnable in
+                self?.loginButton.isEnabled = isEnable
             })
             .disposed(by: disposeBag)
     }
