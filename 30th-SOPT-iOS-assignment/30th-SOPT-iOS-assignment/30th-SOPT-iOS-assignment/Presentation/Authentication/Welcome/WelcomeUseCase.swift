@@ -5,4 +5,13 @@
 //  Created by Junho Lee on 2022/04/09.
 //
 
-import Foundation
+import RxSwift
+
+protocol WelcomeUseCase {
+    
+}
+
+final class DefaultWelcomeUseCase: WelcomeUseCase {
+
+}
+

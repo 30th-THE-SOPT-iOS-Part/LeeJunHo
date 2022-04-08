@@ -28,12 +28,14 @@ final class LoginVC: BaseVC {
     private let emailTextField: AuthTextField = {
         let tf = AuthTextField()
         tf.setPlaceHolder(placeHolder: "sopt_iOS")
+        tf.setClearButton()
         return tf
     }()
     
     private let passwordTextField: AuthTextField = {
         let tf = AuthTextField()
         tf.setPlaceHolder(placeHolder: "hello_iOS")
+        tf.setEyeButton()
         return tf
     }()
     
@@ -91,6 +93,12 @@ final class LoginVC: BaseVC {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        resetUI()
+    }
+    
     // MARK: - Bind
     
     override func bind() {
@@ -107,6 +115,13 @@ final class LoginVC: BaseVC {
                 self?.loginButton.isEnabled = isEnabled
             })
             .disposed(by: disposeBag)
+        
+        output.clearButtonEnable
+            .asDriver(onErrorJustReturn: true)
+            .drive(onNext: { [weak self] isHidden in
+                self?.emailTextField.setClearButton(hidden: isHidden)
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Custom Methods
@@ -116,7 +131,7 @@ final class LoginVC: BaseVC {
         let nextVC = WelcomeVC(user: User(email: "",
                                           username: emailTextField.text,
                                           password: passwordTextField.text))
-        nextVC.modalPresentationStyle = .overFullScreen
+        nextVC.modalPresentationStyle = .fullScreen
         self.present(nextVC, animated: true)
     }
     
@@ -125,15 +140,16 @@ final class LoginVC: BaseVC {
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
+    internal func resetUI() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
+    
     // MARK: - UI & Layout
     
     override func initialize() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem?.tintColor = .black
-    }
-    
-    override func configUI() {
-
     }
     
     override func setLayout() {

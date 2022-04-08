@@ -68,21 +68,13 @@ final class WelcomeVC: BaseVC {
         
     }
     
-    // MARK: - Bind
-    
-    override func bind() {
-    }
-    
     // MARK: - Custom Methods
     
     private func tapToRootVC() {
-        guard let presentingVC = self.presentingViewController as? UINavigationController else { return }
-        
-        presentingVC.popToRootViewController(animated: false)
+        guard let naviVC = self.presentingViewController as? UINavigationController else { return }
+        naviVC.popToRootViewController(animated: false)
         self.dismiss(animated: true)
     }
-    
-    // MARK: - @objc Methods
     
     // MARK: - UI & Layout
     

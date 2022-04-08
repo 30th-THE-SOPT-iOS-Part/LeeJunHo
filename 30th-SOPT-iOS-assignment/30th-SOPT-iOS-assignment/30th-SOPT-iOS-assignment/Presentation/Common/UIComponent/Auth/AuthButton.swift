@@ -11,6 +11,7 @@ import SnapKit
 
 final class AuthButton: UIButton {
     
+    // 도전과제
     override var isEnabled: Bool {
         didSet {
             changeAppearance()
@@ -28,14 +29,6 @@ final class AuthButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Public Methods
-    
-//    @discardableResult
-//    public func setTitle(_ title: String?, for state: UIControl.State) -> Self {
-//        super.setTitle(title, for: state)
-//        return self
-//    }
-    
     // MARK: - Private Methods
     
     private func changeAppearance() {
@@ -52,7 +45,7 @@ final class AuthButton: UIButton {
         isSelected = false
         
         setTitleColor(.white, for: .normal)
-        titleLabel?.font = .systemFont(ofSize: 14)
+        titleLabel?.font = .boldSystemFont(ofSize: 16)
         backgroundColor = .systemBlue
         layer.cornerRadius = 5
     }
@@ -63,9 +56,4 @@ final class AuthButton: UIButton {
             make.height.equalTo(50)
         }
     }
-}
-
-extension AuthButton {
-    
-
 }

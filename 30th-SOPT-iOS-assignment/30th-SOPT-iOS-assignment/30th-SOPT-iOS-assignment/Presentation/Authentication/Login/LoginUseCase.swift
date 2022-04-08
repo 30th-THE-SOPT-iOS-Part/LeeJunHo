@@ -10,10 +10,12 @@ import RxSwift
 protocol LoginUseCase {
     var emailText: String { get set }
     var passwordText: String { get set }
-    var validationState: PublishSubject<Bool> { get set }
+    var loginButtonState: PublishSubject<Bool> { get set }
+    var clearButtonState: PublishSubject<Bool> { get set }
     func setEmailText(emailText: String)
     func setPasswordText(passwordText: String)
     func activateLoginButton()
+    func activateClearButton()
 }
 
 final class DefaultLoginUseCase: LoginUseCase {
@@ -22,29 +24,41 @@ final class DefaultLoginUseCase: LoginUseCase {
     
     var passwordText: String = ""
     
-    var validationState = PublishSubject<Bool>()
+    var loginButtonState = PublishSubject<Bool>()
+    
+    var clearButtonState = PublishSubject<Bool>()
         
-    func setEmailText(emailText: String) {
+    internal func setEmailText(emailText: String) {
         self.emailText = emailText
         self.activateLoginButton()
+        self.activateClearButton()
     }
     
-    func setPasswordText(passwordText: String) {
+    internal func setPasswordText(passwordText: String) {
         self.passwordText = passwordText
         self.activateLoginButton()
     }
     
     internal func activateLoginButton() {
-        guard emailText.isEmpty else {
-            validationState.onNext(false)
+        guard !emailText.isEmpty else {
+            loginButtonState.onNext(false)
             return
         }
         
-        guard passwordText.isEmpty else {
-            validationState.onNext(false)
+        guard !passwordText.isEmpty else {
+            loginButtonState.onNext(false)
             return
         }
         
-        validationState.onNext(true)
+        loginButtonState.onNext(true)
+    }
+    
+    internal func activateClearButton() {
+        guard !emailText.isEmpty else {
+            clearButtonState.onNext(true)
+            return
+        }
+        
+        clearButtonState.onNext(false)
     }
 }
