@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W26-dV-2sk">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="uPn-qW-eSI">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="W26-dV-2sk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qoI-zM-M08">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Doi-cJ-MrX" kind="relationship" relationship="viewControllers" id="5nJ-cF-myR"/>
+                        <segue destination="ThJ-1s-pxx" kind="relationship" relationship="viewControllers" id="Tcy-gT-WLK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZpP-rz-OQf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="80"/>
+        </scene>
+        <!--FirstTab-->
+        <scene sceneID="uoM-6U-Rfd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FirstTab" id="Doi-cJ-MrX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="aAE-r8-NuS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFn-JH-uEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="-84"/>
+        </scene>
+        <!--SecondTab-->
+        <scene sceneID="zCW-Y0-qFM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SecondTab" id="ThJ-1s-pxx" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="oPM-kY-i0x"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xwo-eu-O5w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="317" y="166"/>
+        </scene>
+    </scenes>
+</document>
