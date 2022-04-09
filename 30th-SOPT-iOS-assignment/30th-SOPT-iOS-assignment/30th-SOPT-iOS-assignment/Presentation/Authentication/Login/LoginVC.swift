@@ -150,6 +150,7 @@ final class LoginVC: BaseVC {
     internal func resetUI() {
         emailTextField.text = ""
         passwordTextField.text = ""
+        loginButton.isEnabled = false
     }
     
     // MARK: - UI & Layout
