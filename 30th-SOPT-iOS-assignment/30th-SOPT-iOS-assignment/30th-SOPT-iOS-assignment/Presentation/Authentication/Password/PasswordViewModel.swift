@@ -14,11 +14,20 @@ final class PasswordViewModel {
     }
 
     struct Output {
-        var nextButtonEnabled = PublishSubject<Bool>()
+        var nextButtonEnabled = PublishRelay<Bool>()
     }
 
     // MARK: - Properties
-    private let passwordUseCase = DefaultPasswordUseCase()
+    
+    private let passwordUseCase: PasswordUseCase
+    
+    // MARK: - Initializer
+    
+    init() {
+        passwordUseCase = DefaultPasswordUseCase()
+    }
+    
+    // MARK: Methods
 
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
         self.configureInput(input, disposeBag: disposeBag)
@@ -39,7 +48,7 @@ final class PasswordViewModel {
         passwordUseCase.validationState
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { activation in
-                output.nextButtonEnabled.onNext(activation)
+                output.nextButtonEnabled.accept(activation)
             })
             .disposed(by: disposeBag)
 

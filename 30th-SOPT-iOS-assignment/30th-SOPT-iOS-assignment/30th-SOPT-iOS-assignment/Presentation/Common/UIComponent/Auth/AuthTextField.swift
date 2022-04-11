@@ -8,11 +8,15 @@
 import UIKit
 
 import RxSwift
+import RxCocoa
 import SnapKit
 
 final class AuthTextField: UITextField {
+    enum Size {
+        static let textFieldWidth: CGFloat = UIScreen.main.bounds.width - 40
+    }
     
-    var clearButtonTapped = PublishSubject<Bool>()
+    var clearButtonTapped = PublishRelay<Bool>()
     
     private lazy var eyeButton: UIButton = {
         let bt = UIButton()
@@ -37,7 +41,7 @@ final class AuthTextField: UITextField {
         bt.tintColor = .lightGray
         bt.addAction(UIAction(handler: { _ in
             self.text = ""
-            self.clearButtonTapped.onNext(false)
+            self.clearButtonTapped.accept(false)
         }), for: .touchUpInside)
         
         return bt
@@ -114,7 +118,7 @@ final class AuthTextField: UITextField {
     
     private func setLayout() {
         self.snp.makeConstraints { make in
-            make.width.equalTo(UIScreen.main.bounds.width - 40)
+            make.width.equalTo(Size.textFieldWidth)
             make.height.equalTo(50)
         }
     }

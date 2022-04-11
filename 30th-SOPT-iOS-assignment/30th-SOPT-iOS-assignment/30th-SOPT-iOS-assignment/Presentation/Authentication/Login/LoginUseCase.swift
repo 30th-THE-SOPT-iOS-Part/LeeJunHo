@@ -6,12 +6,13 @@
 //
 
 import RxSwift
+import RxRelay
 
 protocol LoginUseCase {
     var emailText: String { get set }
     var passwordText: String { get set }
-    var loginButtonState: PublishSubject<Bool> { get set }
-    var clearButtonState: PublishSubject<Bool> { get set }
+    var loginButtonState: PublishRelay<Bool> { get set }
+    var clearButtonState: PublishRelay<Bool> { get set }
     func setEmailText(emailText: String)
     func setPasswordText(passwordText: String)
     func activateLoginButton()
@@ -24,9 +25,9 @@ final class DefaultLoginUseCase: LoginUseCase {
     
     var passwordText: String = ""
     
-    var loginButtonState = PublishSubject<Bool>()
+    var loginButtonState = PublishRelay<Bool>()
     
-    var clearButtonState = PublishSubject<Bool>()
+    var clearButtonState = PublishRelay<Bool>()
         
     internal func setEmailText(emailText: String) {
         self.emailText = emailText
@@ -41,24 +42,24 @@ final class DefaultLoginUseCase: LoginUseCase {
     
     internal func activateLoginButton() {
         guard !emailText.isEmpty else {
-            loginButtonState.onNext(false)
+            loginButtonState.accept(false)
             return
         }
         
         guard !passwordText.isEmpty else {
-            loginButtonState.onNext(false)
+            loginButtonState.accept(false)
             return
         }
         
-        loginButtonState.onNext(true)
+        loginButtonState.accept(true)
     }
     
     internal func activateClearButton() {
         guard !emailText.isEmpty else {
-            clearButtonState.onNext(true)
+            clearButtonState.accept(true)
             return
         }
         
-        clearButtonState.onNext(false)
+        clearButtonState.accept(false)
     }
 }

@@ -15,6 +15,10 @@
 		EB0C3AF528009A10009ACE52 /* UsernameUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF428009A10009ACE52 /* UsernameUseCase.swift */; };
 		EB0C3AF728009A18009ACE52 /* PasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF628009A18009ACE52 /* PasswordUseCase.swift */; };
 		EB0C3AF928009A20009ACE52 /* WelcomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AF828009A20009ACE52 /* WelcomeUseCase.swift */; };
+		EB0FE3C62801E044005D6DBA /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FE3C52801E044005D6DBA /* UIStackView+.swift */; };
+		EB0FE3C82801E0A9005D6DBA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FE3C72801E0A9005D6DBA /* UITextField+.swift */; };
+		EB0FE3CA2801E83B005D6DBA /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FE3C92801E83B005D6DBA /* UILabel+.swift */; };
+		EB0FE3D428048D49005D6DBA /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FE3D328048D49005D6DBA /* Reactive+.swift */; };
 		EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43527F81F1100675CED /* AppDelegate.swift */; };
 		EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43727F81F1100675CED /* SceneDelegate.swift */; };
 		EB7FB43F27F81F1200675CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB43E27F81F1200675CED /* Assets.xcassets */; };
@@ -46,6 +50,10 @@
 		EB0C3AF428009A10009ACE52 /* UsernameUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameUseCase.swift; sourceTree = "<group>"; };
 		EB0C3AF628009A18009ACE52 /* PasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUseCase.swift; sourceTree = "<group>"; };
 		EB0C3AF828009A20009ACE52 /* WelcomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeUseCase.swift; sourceTree = "<group>"; };
+		EB0FE3C52801E044005D6DBA /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		EB0FE3C72801E0A9005D6DBA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
+		EB0FE3C92801E83B005D6DBA /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		EB0FE3D328048D49005D6DBA /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
 		EB7FB43227F81F1100675CED /* 30th-SOPT-iOS-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30th-SOPT-iOS-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7FB43527F81F1100675CED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7FB43727F81F1100675CED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -292,6 +300,10 @@
 			isa = PBXGroup;
 			children = (
 				EBC1870327FF8665007016F0 /* UIView+.swift */,
+				EB0FE3C52801E044005D6DBA /* UIStackView+.swift */,
+				EB0FE3C72801E0A9005D6DBA /* UITextField+.swift */,
+				EB0FE3C92801E83B005D6DBA /* UILabel+.swift */,
+				EB0FE3D328048D49005D6DBA /* Reactive+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -504,13 +516,17 @@
 				EB0C3AF928009A20009ACE52 /* WelcomeUseCase.swift in Sources */,
 				EBC1871C27FF9130007016F0 /* AuthTextField.swift in Sources */,
 				EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */,
+				EB0FE3C82801E0A9005D6DBA /* UITextField+.swift in Sources */,
 				EBC1870C27FF8F4C007016F0 /* UsernameVC.swift in Sources */,
+				EB0FE3CA2801E83B005D6DBA /* UILabel+.swift in Sources */,
 				EBC186FB27FF7B37007016F0 /* BaseVC.swift in Sources */,
 				EB0C3AF728009A18009ACE52 /* PasswordUseCase.swift in Sources */,
+				EB0FE3D428048D49005D6DBA /* Reactive+.swift in Sources */,
 				EB0C3AF1280063E3009ACE52 /* User.swift in Sources */,
 				EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */,
 				EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */,
 				EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */,
+				EB0FE3C62801E044005D6DBA /* UIStackView+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

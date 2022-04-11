@@ -23,8 +23,6 @@ final class LoginVC: BaseVC {
         return iv
     }()
     
-    private let myTextField = UITextField()
-    
     private let emailTextField: AuthTextField = {
         let tf = AuthTextField()
         tf.setPlaceHolder(placeHolder: "sopt_iOS")
@@ -116,7 +114,7 @@ final class LoginVC: BaseVC {
             })
             .disposed(by: disposeBag)
         
-        output.clearButtonEnable
+        output.clearButtonHidden
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { [weak self] isHidden in
                 self?.emailTextField.setClearButton(hidden: isHidden)

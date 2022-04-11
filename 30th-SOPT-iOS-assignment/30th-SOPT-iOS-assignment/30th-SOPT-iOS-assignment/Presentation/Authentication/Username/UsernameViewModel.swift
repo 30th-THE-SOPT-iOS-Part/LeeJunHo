@@ -15,12 +15,21 @@ final class UsernameViewModel {
     }
 
     struct Output {
-        var nextButtonEnabled = PublishSubject<Bool>()
+        var nextButtonEnabled = PublishRelay<Bool>()
     }
 
     // MARK: - Properties
-    private let usernameUseCase = DefaultUsernameUseCase()
-
+    
+    private let usernameUseCase: UsernameUseCase
+    
+    // MARK: - Initializer
+    
+    init() {
+      usernameUseCase = DefaultUsernameUseCase()
+    }
+    
+    // MARK: Methods
+    
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
         self.configureInput(input, disposeBag: disposeBag)
         return createOutput(from: input, disposeBag: disposeBag)
@@ -40,7 +49,7 @@ final class UsernameViewModel {
         usernameUseCase.validationState
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { activation in
-                output.nextButtonEnabled.onNext(activation)
+                output.nextButtonEnabled.accept(activation)
             })
             .disposed(by: disposeBag)
 

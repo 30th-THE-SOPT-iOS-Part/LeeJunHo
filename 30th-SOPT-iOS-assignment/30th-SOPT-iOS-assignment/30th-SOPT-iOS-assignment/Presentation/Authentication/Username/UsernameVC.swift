@@ -97,9 +97,6 @@ final class UsernameVC: BaseVC {
         self.navigationItem.backBarButtonItem?.tintColor = .black
     }
     
-    override func configUI() {
-    }
-    
     override func setLayout() {
         view.addSubviews(titleLabel, guideLabel, usernameTextField,
                          nextButton)

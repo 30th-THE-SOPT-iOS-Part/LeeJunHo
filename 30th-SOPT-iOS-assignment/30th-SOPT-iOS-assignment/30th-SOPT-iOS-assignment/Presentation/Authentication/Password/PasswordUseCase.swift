@@ -6,10 +6,11 @@
 //
 
 import RxSwift
+import RxCocoa
 
 protocol PasswordUseCase {
     var passwordText: String { get set }
-    var validationState: PublishSubject<Bool> { get set }
+    var validationState: PublishRelay<Bool> { get set }
     func setPasswordText(passwordText: String)
     func activateNextButton()
 }
@@ -18,7 +19,7 @@ final class DefaultPasswordUseCase: PasswordUseCase {
 
     var passwordText: String = ""
     
-    var validationState = PublishSubject<Bool>()
+    var validationState = PublishRelay<Bool>()
         
     func setPasswordText(passwordText: String) {
         self.passwordText = passwordText
@@ -27,10 +28,10 @@ final class DefaultPasswordUseCase: PasswordUseCase {
     
     internal func activateNextButton() {
         guard !passwordText.isEmpty else {
-            validationState.onNext(false)
+            validationState.accept(false)
             return
         }
         
-        validationState.onNext(true)
+        validationState.accept(true)
     }
 }

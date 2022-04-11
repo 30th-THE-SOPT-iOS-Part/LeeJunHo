@@ -6,10 +6,11 @@
 //
 
 import RxSwift
+import RxCocoa
 
 protocol UsernameUseCase {
     var usernameText: String { get set }
-    var validationState: PublishSubject<Bool> { get set }
+    var validationState: PublishRelay<Bool> { get set }
     func setUsernameText(usernameText: String)
     func activateNextButton()
 }
@@ -18,7 +19,7 @@ final class DefaultUsernameUseCase: UsernameUseCase {
 
     var usernameText: String = ""
     
-    var validationState = PublishSubject<Bool>()
+    var validationState = PublishRelay<Bool>()
         
     func setUsernameText(usernameText: String) {
         self.usernameText = usernameText
@@ -27,10 +28,10 @@ final class DefaultUsernameUseCase: UsernameUseCase {
     
     internal func activateNextButton() {
         guard !usernameText.isEmpty else {
-            validationState.onNext(false)
+            validationState.accept(false)
             return
         }
         
-        validationState.onNext(true)
+        validationState.accept(true)
     }
 }

@@ -66,12 +66,21 @@ final class LoginViewModel {
     }
 
     struct Output {
-        var loginButtonEnable = PublishSubject<Bool>()
-        var clearButtonEnable = PublishSubject<Bool>()
+        var loginButtonEnable = PublishRelay<Bool>()
+        var clearButtonHidden = PublishRelay<Bool>()
     }
 
     // MARK: - Properties
-    private let loginUseCase = DefaultLoginUseCase()
+    
+    private let loginUseCase: LoginUseCase
+    
+    // MARK: - Initializer
+    
+    init() {
+      loginUseCase = DefaultLoginUseCase()
+    }
+    
+    // MARK: Methods
 
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
         self.configureInput(input, disposeBag: disposeBag)
@@ -98,14 +107,14 @@ final class LoginViewModel {
         loginUseCase.loginButtonState
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { activation in
-                output.loginButtonEnable.onNext(activation)
+                output.loginButtonEnable.accept(activation)
             })
             .disposed(by: disposeBag)
         
         loginUseCase.clearButtonState
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { hiddenStatus in
-                output.clearButtonEnable.onNext(hiddenStatus)
+                output.clearButtonHidden.accept(hiddenStatus)
             })
             .disposed(by: disposeBag)
 
