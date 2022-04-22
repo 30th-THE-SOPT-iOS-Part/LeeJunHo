@@ -7,8 +7,15 @@
 
 import UIKit
 
-class MainTBC: UITabBarController {
+import RxSwift
+import RxCocoa
+
 final class MainTBC: UITabBarController {
+    
+    // MARK: Properties
+    
+    private let disposeBag = DisposeBag()
+    
     // MARK: View Life Cycle
     
     override func viewDidLoad() {
@@ -55,6 +62,16 @@ final class MainTBC: UITabBarController {
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = .black
     }
+    
+    private func bind() {
+        self.rx.didSelect.asDriver()
+            .drive(onNext: { vc in
+                guard let index: Int = self.viewControllers?.firstIndex(of: vc) else { return }
+                self.setTabBarStyle(by: index)
+            })
+            .disposed(by: disposeBag)
+    }
+    
     private func makeNavigationController(unselectedImage: UIImage?, selectedImage: UIImage?, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = unselectedImage
@@ -64,5 +81,17 @@ final class MainTBC: UITabBarController {
         nav.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
         nav.navigationItem.backBarButtonItem?.tintColor = .black
         return nav
+    }
+    
+    private func setTabBarStyle(by selectedIndex: Int) {
+        if(selectedIndex == 2) {
+            tabBar.backgroundColor = .black
+            tabBar.tintColor = .white
+            tabBar.unselectedItemTintColor = .white
+        } else {
+            tabBar.backgroundColor = .white
+            tabBar.tintColor = .black
+            tabBar.unselectedItemTintColor = .black
+        }
     }
 }
