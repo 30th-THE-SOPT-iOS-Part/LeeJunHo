@@ -52,6 +52,14 @@ final class WelcomeVC: BaseVC {
         return bt
     }()
     
+    private lazy var anotherAccountButton: UIButton = {
+        let bt = UIButton()
+        bt.setTitle("다른 계정으로 로그인하기", for: .normal)
+        bt.setTitleColor(UIColor.systemBlue, for: .normal)
+        bt.titleLabel?.font = .systemFont(ofSize: 13)
+        return bt
+    }()
+    
     // MARK: - Lifecycle
     
     init(user: User) {
@@ -83,21 +91,27 @@ final class WelcomeVC: BaseVC {
     }
     
     override func setLayout() {
-        view.addSubviews(titleLabel, guideLabel, completeButton)
+        view.addSubviews(titleLabel, guideLabel, completeButton,
+                         anotherAccountButton)
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(250)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(266)
         }
         
         guideLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(23)
         }
         
         completeButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.top.equalTo(guideLabel.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(38)
+            make.top.equalTo(guideLabel.snp.bottom).offset(23)
+        }
+        
+        anotherAccountButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(completeButton.snp.bottom).offset(18)
         }
     }
 }

@@ -13,7 +13,7 @@ import SnapKit
 
 final class AuthTextField: UITextField {
     enum Size {
-        static let textFieldWidth: CGFloat = UIScreen.main.bounds.width - 40
+        static let textFieldWidth: CGFloat = UIScreen.main.bounds.width - 32
     }
     
     var clearButtonTapped = PublishRelay<Bool>()
@@ -119,7 +119,7 @@ final class AuthTextField: UITextField {
     private func setLayout() {
         self.snp.makeConstraints { make in
             make.width.equalTo(Size.textFieldWidth)
-            make.height.equalTo(50)
+            make.height.equalTo(44)
         }
     }
 }
