@@ -89,8 +89,16 @@ final class WelcomeVC: BaseVC {
     
     private func tapToMainTBC() {
         let nextVC = MainTBC()
-        nextVC.modalPresentationStyle = .overFullScreen
-        self.present(nextVC, animated: true)
+        guard let window = self.view.window else { return }
+        window.addSubview(nextVC.view)
+        nextVC.view.frame.origin = CGPoint(x: 0, y: window.frame.height)
+        
+        UIView.transition(with: nextVC.view, duration: 0.2, options: .curveEaseInOut) {
+            nextVC.view.frame.origin = CGPoint(x: 0, y: 0)
+        } completion: { _ in
+            nextVC.view.removeFromSuperview()
+            window.rootViewController = nextVC
+        }
     }
     
     // MARK: - UI & Layout
