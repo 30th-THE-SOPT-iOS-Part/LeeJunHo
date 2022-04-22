@@ -46,7 +46,7 @@ final class WelcomeVC: BaseVC {
         let bt = AuthButton()
         bt.setTitle("완료하기", for: .normal)
         bt.addAction(UIAction(handler: { _ in
-            self.tapToRootVC()
+            self.tapToMainTBC()
         }), for: .touchUpInside)
         bt.isEnabled = true
         return bt
@@ -56,6 +56,9 @@ final class WelcomeVC: BaseVC {
         let bt = UIButton()
         bt.setTitle("다른 계정으로 로그인하기", for: .normal)
         bt.setTitleColor(UIColor.systemBlue, for: .normal)
+        bt.addAction(UIAction(handler: { _ in
+            self.tapToRootVC()
+        }), for: .touchUpInside)
         bt.titleLabel?.font = .systemFont(ofSize: 13)
         return bt
     }()
@@ -82,6 +85,12 @@ final class WelcomeVC: BaseVC {
         guard let naviVC = self.presentingViewController as? UINavigationController else { return }
         naviVC.popToRootViewController(animated: false)
         self.dismiss(animated: true)
+    }
+    
+    private func tapToMainTBC() {
+        let nextVC = MainTBC()
+        nextVC.modalPresentationStyle = .overFullScreen
+        self.present(nextVC, animated: true)
     }
     
     // MARK: - UI & Layout
