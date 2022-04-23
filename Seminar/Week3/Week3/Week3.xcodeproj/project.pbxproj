@@ -16,6 +16,11 @@
 		EB49E7C12813D01100B92EF0 /* DelegatePracticeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49E7C02813D01100B92EF0 /* DelegatePracticeVC.swift */; };
 		EB49E7C32813D01D00B92EF0 /* DelegatePractice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB49E7C22813D01D00B92EF0 /* DelegatePractice.storyboard */; };
 		EB49E7C52813D79A00B92EF0 /* SecondVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49E7C42813D79A00B92EF0 /* SecondVC.swift */; };
+		EB49E7C82813DE9D00B92EF0 /* TableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49E7C72813DE9D00B92EF0 /* TableViewVC.swift */; };
+		EB49E7CA2813DEA900B92EF0 /* TableView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB49E7C92813DEA900B92EF0 /* TableView.storyboard */; };
+		EB49E7CD2813DFAC00B92EF0 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49E7CB2813DFAC00B92EF0 /* MyTableViewCell.swift */; };
+		EB49E7CE2813DFAC00B92EF0 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB49E7CC2813DFAC00B92EF0 /* MyTableViewCell.xib */; };
+		EB49E7D02813E44C00B92EF0 /* MusicDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49E7CF2813E44C00B92EF0 /* MusicDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		EB49E7C02813D01100B92EF0 /* DelegatePracticeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatePracticeVC.swift; sourceTree = "<group>"; };
 		EB49E7C22813D01D00B92EF0 /* DelegatePractice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DelegatePractice.storyboard; sourceTree = "<group>"; };
 		EB49E7C42813D79A00B92EF0 /* SecondVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVC.swift; sourceTree = "<group>"; };
+		EB49E7C72813DE9D00B92EF0 /* TableViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewVC.swift; sourceTree = "<group>"; };
+		EB49E7C92813DEA900B92EF0 /* TableView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableView.storyboard; sourceTree = "<group>"; };
+		EB49E7CB2813DFAC00B92EF0 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		EB49E7CC2813DFAC00B92EF0 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
+		EB49E7CF2813E44C00B92EF0 /* MusicDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +77,8 @@
 				EB49E7AE2813C75100B92EF0 /* ViewController.swift */,
 				EB49E7B02813C75100B92EF0 /* Main.storyboard */,
 				EB49E7C02813D01100B92EF0 /* DelegatePracticeVC.swift */,
+				EB49E7D12813EE2700B92EF0 /* CollectionView */,
+				EB49E7C62813DE8700B92EF0 /* TableView */,
 				EB49E7C42813D79A00B92EF0 /* SecondVC.swift */,
 				EB49E7C22813D01D00B92EF0 /* DelegatePractice.storyboard */,
 				EB49E7B32813C75200B92EF0 /* Assets.xcassets */,
@@ -74,6 +86,25 @@
 				EB49E7B82813C75200B92EF0 /* Info.plist */,
 			);
 			path = Week3;
+			sourceTree = "<group>";
+		};
+		EB49E7C62813DE8700B92EF0 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				EB49E7C72813DE9D00B92EF0 /* TableViewVC.swift */,
+				EB49E7C92813DEA900B92EF0 /* TableView.storyboard */,
+				EB49E7CB2813DFAC00B92EF0 /* MyTableViewCell.swift */,
+				EB49E7CC2813DFAC00B92EF0 /* MyTableViewCell.xib */,
+				EB49E7CF2813E44C00B92EF0 /* MusicDataModel.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
+		EB49E7D12813EE2700B92EF0 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +166,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB49E7C32813D01D00B92EF0 /* DelegatePractice.storyboard in Resources */,
+				EB49E7CE2813DFAC00B92EF0 /* MyTableViewCell.xib in Resources */,
 				EB49E7B72813C75200B92EF0 /* LaunchScreen.storyboard in Resources */,
+				EB49E7CA2813DEA900B92EF0 /* TableView.storyboard in Resources */,
 				EB49E7B42813C75200B92EF0 /* Assets.xcassets in Resources */,
 				EB49E7B22813C75100B92EF0 /* Main.storyboard in Resources */,
 			);
@@ -148,7 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB49E7CD2813DFAC00B92EF0 /* MyTableViewCell.swift in Sources */,
+				EB49E7C82813DE9D00B92EF0 /* TableViewVC.swift in Sources */,
 				EB49E7AF2813C75100B92EF0 /* ViewController.swift in Sources */,
+				EB49E7D02813E44C00B92EF0 /* MusicDataModel.swift in Sources */,
 				EB49E7C52813D79A00B92EF0 /* SecondVC.swift in Sources */,
 				EB49E7AB2813C75100B92EF0 /* AppDelegate.swift in Sources */,
 				EB49E7C12813D01100B92EF0 /* DelegatePracticeVC.swift in Sources */,
