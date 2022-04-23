@@ -7,8 +7,16 @@
 
 import UIKit
 
+protocol SecondVCDelegate: AnyObject {
+    func sendData(data: String)
+}
+
 class SecondVC: UIViewController {
 
+    @IBOutlet weak var dataTextField: UITextField!
+    
+    weak var delegate: SecondVCDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +24,13 @@ class SecondVC: UIViewController {
     }
     
 
+    @IBAction func sendDataButtonDidTap(_ sender: Any) {
+        if let text = dataTextField.text {
+            delegate?.sendData(data: text)
+        }
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     /*
     // MARK: - Navigation
 
