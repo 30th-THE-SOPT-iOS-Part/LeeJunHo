@@ -164,32 +164,32 @@ final class LoginVC: BaseVC {
         
         logoImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(100)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(122)
         }
         
         emailTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(logoImageView.snp.bottom).offset(30)
+            make.top.equalTo(logoImageView.snp.bottom).offset(40)
         }
         
         passwordTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(emailTextField.snp.bottom).offset(5)
+            make.top.equalTo(emailTextField.snp.bottom).offset(16)
         }
         
         passwordLoseButton.snp.makeConstraints { make in
             make.trailing.equalTo(passwordTextField.snp.trailing)
-            make.top.equalTo(passwordTextField.snp.bottom).offset(10)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(16)
         }
         
         loginButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(passwordLoseButton.snp.bottom).offset(30)
+            make.top.equalTo(passwordLoseButton.snp.bottom).offset(33)
         }
         
         registrationStackView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(loginButton.snp.bottom).offset(30)
+            make.top.equalTo(loginButton.snp.bottom).offset(33)
         }
     }
 }

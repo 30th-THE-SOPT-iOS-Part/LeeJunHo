@@ -46,9 +46,20 @@ final class WelcomeVC: BaseVC {
         let bt = AuthButton()
         bt.setTitle("완료하기", for: .normal)
         bt.addAction(UIAction(handler: { _ in
-            self.tapToRootVC()
+            self.tapToMainTBC()
         }), for: .touchUpInside)
         bt.isEnabled = true
+        return bt
+    }()
+    
+    private lazy var anotherAccountButton: UIButton = {
+        let bt = UIButton()
+        bt.setTitle("다른 계정으로 로그인하기", for: .normal)
+        bt.setTitleColor(UIColor.systemBlue, for: .normal)
+        bt.addAction(UIAction(handler: { _ in
+            self.tapToRootVC()
+        }), for: .touchUpInside)
+        bt.titleLabel?.font = .systemFont(ofSize: 13)
         return bt
     }()
     
@@ -76,6 +87,20 @@ final class WelcomeVC: BaseVC {
         self.dismiss(animated: true)
     }
     
+    private func tapToMainTBC() {
+        let nextVC = MainTBC()
+        guard let window = self.view.window else { return }
+        window.addSubview(nextVC.view)
+        nextVC.view.frame.origin = CGPoint(x: 0, y: window.frame.height)
+        
+        UIView.transition(with: nextVC.view, duration: 0.2, options: .curveEaseInOut) {
+            nextVC.view.frame.origin = CGPoint(x: 0, y: 0)
+        } completion: { _ in
+            nextVC.view.removeFromSuperview()
+            window.rootViewController = nextVC
+        }
+    }
+    
     // MARK: - UI & Layout
     
     override func configUI() {
@@ -83,21 +108,27 @@ final class WelcomeVC: BaseVC {
     }
     
     override func setLayout() {
-        view.addSubviews(titleLabel, guideLabel, completeButton)
+        view.addSubviews(titleLabel, guideLabel, completeButton,
+                         anotherAccountButton)
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(250)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(266)
         }
         
         guideLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(23)
         }
         
         completeButton.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview().inset(30)
-            make.top.equalTo(guideLabel.snp.bottom).offset(30)
+            make.leading.trailing.equalToSuperview().inset(38)
+            make.top.equalTo(guideLabel.snp.bottom).offset(23)
+        }
+        
+        anotherAccountButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(completeButton.snp.bottom).offset(18)
         }
     }
 }

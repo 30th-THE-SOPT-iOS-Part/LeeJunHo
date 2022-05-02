@@ -52,8 +52,8 @@ final class AuthButton: UIButton {
     
     private func setLayout() {
         self.snp.makeConstraints { make in
-            make.width.equalTo(UIScreen.main.bounds.width - 40)
-            make.height.equalTo(50)
+            make.width.equalTo(UIScreen.main.bounds.width - 32)
+            make.height.equalTo(44)
         }
     }
 }

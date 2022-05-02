@@ -19,10 +19,16 @@
 		EB0FE3C82801E0A9005D6DBA /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FE3C72801E0A9005D6DBA /* UITextField+.swift */; };
 		EB0FE3CA2801E83B005D6DBA /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FE3C92801E83B005D6DBA /* UILabel+.swift */; };
 		EB0FE3D428048D49005D6DBA /* Reactive+.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FE3D328048D49005D6DBA /* Reactive+.swift */; };
+		EB67C6A0281285300041DCFD /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67C69F281285300041DCFD /* HomeVC.swift */; };
+		EB67C6A2281285370041DCFD /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67C6A1281285370041DCFD /* SearchVC.swift */; };
+		EB67C6A42812853D0041DCFD /* ReelsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67C6A32812853D0041DCFD /* ReelsVC.swift */; };
+		EB67C6A6281285420041DCFD /* ShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67C6A5281285420041DCFD /* ShopVC.swift */; };
+		EB67C6A82812854A0041DCFD /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB67C6A72812854A0041DCFD /* ProfileVC.swift */; };
 		EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43527F81F1100675CED /* AppDelegate.swift */; };
 		EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7FB43727F81F1100675CED /* SceneDelegate.swift */; };
 		EB7FB43F27F81F1200675CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB43E27F81F1200675CED /* Assets.xcassets */; };
 		EB7FB44227F81F1200675CED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB44027F81F1200675CED /* LaunchScreen.storyboard */; };
+		EB9A3C6C28127EC7009DA924 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A3C6B28127EC7009DA924 /* MainTBC.swift */; };
 		EBC186FB27FF7B37007016F0 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC186FA27FF7B37007016F0 /* BaseVC.swift */; };
 		EBC186FD27FF7FA9007016F0 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC186FC27FF7FA9007016F0 /* LoginVC.swift */; };
 		EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1870127FF8505007016F0 /* LoginViewModel.swift */; };
@@ -54,12 +60,18 @@
 		EB0FE3C72801E0A9005D6DBA /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		EB0FE3C92801E83B005D6DBA /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		EB0FE3D328048D49005D6DBA /* Reactive+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+.swift"; sourceTree = "<group>"; };
+		EB67C69F281285300041DCFD /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		EB67C6A1281285370041DCFD /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		EB67C6A32812853D0041DCFD /* ReelsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsVC.swift; sourceTree = "<group>"; };
+		EB67C6A5281285420041DCFD /* ShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopVC.swift; sourceTree = "<group>"; };
+		EB67C6A72812854A0041DCFD /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		EB7FB43227F81F1100675CED /* 30th-SOPT-iOS-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "30th-SOPT-iOS-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB7FB43527F81F1100675CED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB7FB43727F81F1100675CED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EB7FB43E27F81F1200675CED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB7FB44127F81F1200675CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB7FB44327F81F1200675CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB9A3C6B28127EC7009DA924 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
 		EBC186FA27FF7B37007016F0 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		EBC186FC27FF7FA9007016F0 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		EBC1870127FF8505007016F0 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -107,6 +119,46 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		EB67C69A2812848F0041DCFD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EB67C69F281285300041DCFD /* HomeVC.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EB67C69B2812849A0041DCFD /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EB67C6A1281285370041DCFD /* SearchVC.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		EB67C69C281284B80041DCFD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EB67C6A72812854A0041DCFD /* ProfileVC.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		EB67C69D281284BF0041DCFD /* Reels */ = {
+			isa = PBXGroup;
+			children = (
+				EB67C6A32812853D0041DCFD /* ReelsVC.swift */,
+			);
+			path = Reels;
+			sourceTree = "<group>";
+		};
+		EB67C69E281284CC0041DCFD /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				EB67C6A5281285420041DCFD /* ShopVC.swift */,
+			);
+			path = Shop;
+			sourceTree = "<group>";
+		};
 		EB7FB42927F81F1100675CED = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +187,14 @@
 				EBFEA39427FF76A6003FADB7 /* Utils */,
 			);
 			path = "30th-SOPT-iOS-assignment";
+			sourceTree = "<group>";
+		};
+		EB9A3C6928127CD6009DA924 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				EB9A3C6B28127EC7009DA924 /* MainTBC.swift */,
+			);
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 		EBC186FE27FF84B2007016F0 /* Login */ = {
@@ -227,6 +287,12 @@
 			children = (
 				EBFEA3A827FF7A94003FADB7 /* Common */,
 				EBFEA3A227FF79BD003FADB7 /* Authentication */,
+				EB9A3C6928127CD6009DA924 /* MainTabBar */,
+				EB67C69A2812848F0041DCFD /* Home */,
+				EB67C69B2812849A0041DCFD /* Search */,
+				EB67C69D281284BF0041DCFD /* Reels */,
+				EB67C69E281284CC0041DCFD /* Shop */,
+				EB67C69C281284B80041DCFD /* Profile */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -501,6 +567,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9A3C6C28127EC7009DA924 /* MainTBC.swift in Sources */,
+				EB67C6A0281285300041DCFD /* HomeVC.swift in Sources */,
 				EBC1870E27FF8F53007016F0 /* UsernameViewModel.swift in Sources */,
 				EBC1871A27FF9128007016F0 /* AuthButton.swift in Sources */,
 				EBC1871227FF8F64007016F0 /* PasswordViewModel.swift in Sources */,
@@ -509,13 +577,17 @@
 				EBC1871027FF8F5D007016F0 /* PasswordVC.swift in Sources */,
 				EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */,
 				EB0C3AF3280094A0009ACE52 /* BaseNVC.swift in Sources */,
+				EB67C6A2281285370041DCFD /* SearchVC.swift in Sources */,
 				EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */,
 				EB0C3AF528009A10009ACE52 /* UsernameUseCase.swift in Sources */,
 				EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */,
 				EBC186FD27FF7FA9007016F0 /* LoginVC.swift in Sources */,
 				EB0C3AF928009A20009ACE52 /* WelcomeUseCase.swift in Sources */,
 				EBC1871C27FF9130007016F0 /* AuthTextField.swift in Sources */,
+				EB67C6A6281285420041DCFD /* ShopVC.swift in Sources */,
 				EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */,
+				EB67C6A42812853D0041DCFD /* ReelsVC.swift in Sources */,
+				EB67C6A82812854A0041DCFD /* ProfileVC.swift in Sources */,
 				EB0FE3C82801E0A9005D6DBA /* UITextField+.swift in Sources */,
 				EBC1870C27FF8F4C007016F0 /* UsernameVC.swift in Sources */,
 				EB0FE3CA2801E83B005D6DBA /* UILabel+.swift in Sources */,

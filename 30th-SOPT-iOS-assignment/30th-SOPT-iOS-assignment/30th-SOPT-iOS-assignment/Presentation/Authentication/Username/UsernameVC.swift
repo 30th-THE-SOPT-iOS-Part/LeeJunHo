@@ -103,22 +103,22 @@ final class UsernameVC: BaseVC {
         
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
         }
         
         guideLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(19)
         }
         
         usernameTextField.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(guideLabel.snp.bottom).offset(20)
+            make.top.equalTo(guideLabel.snp.bottom).offset(19)
         }
         
         nextButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(usernameTextField.snp.bottom).offset(20)
+            make.top.equalTo(usernameTextField.snp.bottom).offset(22)
         }
     }
 }

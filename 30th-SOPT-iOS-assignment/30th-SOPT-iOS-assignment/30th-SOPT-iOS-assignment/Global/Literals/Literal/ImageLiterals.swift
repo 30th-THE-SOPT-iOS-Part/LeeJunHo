@@ -17,4 +17,22 @@ struct ImageLiterals {
         static let instaBlackLogo = UIImage(named: "Instagram Black Logo")
     }
     
+    struct MainTabBar {
+        static let homeIcon = UIImage(named: "icn_home")
+        static let homeIcon_selected = UIImage(named: "icn_home_selected")
+        static let searchIcon = UIImage(named: "icn_search")
+        static let searchIcon_selected = UIImage(named: "icn_search_selected")
+        static let reelsIcon = UIImage(named: "icn_reels")
+        static let reelsIcon_selected = UIImage(named: "icn_reels_selected")
+        static let shopIcon = UIImage(named: "icn_shop")
+        static let shopIcon_selected = UIImage(named: "icn_shop_selected")
+        static let profileIcon: UIImage = {
+            guard let image = UIImage(named: "icn_profile")?.withRenderingMode(.alwaysOriginal) else { return UIImage() }
+            return image
+        }()
+        static let profileIcon_selected: UIImage = {
+            guard let image = UIImage(named: "icn_profile_selected")?.withRenderingMode(.alwaysOriginal) else { return UIImage() }
+            return image
+        }()
+    }
 }
