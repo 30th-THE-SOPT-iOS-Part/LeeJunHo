@@ -6,3 +6,19 @@
 //
 
 import Foundation
+
+protocol HomeContent {
+  var `case`: Home.ContentList { get set }
+}
+
+struct Home{
+  enum ContentList{
+    case story
+    case post
+  }
+  
+  struct ContentData{
+    var storyData: Home.StoryData?
+    var postData: Home.PostData?
+  }
+}
