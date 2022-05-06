@@ -20,9 +20,8 @@ final class HomeVC: BaseVC {
     private lazy var homeTableView: UITableView = {
         let tv = UITableView()
         tv.separatorStyle = .none
-        tv.backgroundColor = .systemGray4
-        tv.rowHeight = UITableView.automaticDimension
-        tv.dataSource = nil
+        tv.backgroundColor = .white
+        tv.clipsToBounds = true
         return tv
     }()
     
@@ -76,7 +75,7 @@ final class HomeVC: BaseVC {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem?.tintColor = .black
         
-        view.backgroundColor = .brown
+        view.backgroundColor = .white
     }
     
     override func setLayout() {

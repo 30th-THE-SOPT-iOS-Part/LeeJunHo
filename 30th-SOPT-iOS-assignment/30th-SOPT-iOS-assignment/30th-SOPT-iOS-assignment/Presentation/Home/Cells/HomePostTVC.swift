@@ -15,7 +15,11 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
     
     static var isFromNib = false
     
-    private let guideImageView = UIImageView()
+    private let postImageView: UIImageView = {
+        let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 300))
+        iv.contentMode = .scaleAspectFill
+        return iv
+    }()
     
     // MARK: - View Life Cycles
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -32,23 +36,38 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        updateLayout()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 6, left: 0, bottom: 6, right: 0))
     }
     
     // MARK: - Methods
     
-    func setData(data: Home.PostDataModel) {
-        guideImageView.image = UIImage(named: "\(data.postImage)")
+    func updateLayout(){
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
     }
     
+    func setData(data: Home.PostDataModel) {
+        postImageView.image = UIImage(named: "\(data.postImage)")
+    }
+    
+    // MARK: UI & Layout
+    
     private func setUI() {
-        guideImageView.contentMode = .scaleAspectFill
+        self.backgroundColor = .white
     }
     
     private func setLayout() {
-        self.addSubview(guideImageView)
+        contentView.addSubviews(postImageView)
         
-        guideImageView.snp.makeConstraints { make in
+        postImageView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview()
             make.width.equalTo(UIScreen.main.bounds.width)
             make.height.equalTo(300)
         }

@@ -15,14 +15,33 @@ final class StoryCVC: UICollectionViewCell, UICollectionViewRegisterable {
     
     static var isFromNib = false
     
-    let profileImageView = UIImageView()
-    let nameLabel = UILabel()
+    private let profileImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.backgroundColor = .gray
+        iv.layer.borderWidth = 0.5
+        iv.layer.borderColor = UIColor.gray.cgColor
+        iv.layer.cornerRadius = 24
+        iv.layer.masksToBounds = true
+        iv.contentMode = .scaleAspectFill
+        return iv
+    }()
+    
+    private let nameLabel: UILabel = {
+        let lb = UILabel()
+        lb.font = UIFont.systemFont(ofSize: 10)
+        lb.textColor = .black
+        lb.text = ""
+        lb.numberOfLines = 1
+        lb.lineBreakMode = .byTruncatingTail
+        lb.textAlignment = .center
+        return lb
+    }()
     
     // MARK: - View Life Cycles
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         setUI()
         setLayout()
     }
@@ -36,43 +55,31 @@ final class StoryCVC: UICollectionViewCell, UICollectionViewRegisterable {
         profileImageView.image = UIImage()
     }
     
-    /// 셀 초기화.
+    // MARK: Custom Methods
+    
     func setData(username: String, userImage: String) {
         nameLabel.text = username
         profileImageView.image = UIImage(named: userImage)
     }
-}
-
-// MARK: - Methods
-
-extension StoryCVC {
+    
+    // MARK: UI & Layout
+    
     private func setUI() {
-        profileImageView.backgroundColor = .gray
-        profileImageView.layer.borderWidth = 2
-        profileImageView.layer.borderColor = UIColor.gray.cgColor
-        profileImageView.layer.cornerRadius = 30
-        profileImageView.layer.masksToBounds = true
-        profileImageView.contentMode = .scaleAspectFill
-        
-        nameLabel.font = UIFont.systemFont(ofSize: 12)
-        nameLabel.textColor = .black
-        nameLabel.numberOfLines = 1
-        nameLabel.lineBreakMode = .byTruncatingTail
-        nameLabel.textAlignment = .center
+        self.backgroundColor = .white
     }
     
     private func setLayout() {
         addSubviews(profileImageView, nameLabel)
         
         profileImageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.width.height.equalTo(60)
+            make.top.equalToSuperview().inset(10)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(48)
         }
         
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(4)
-            make.centerX.equalTo(profileImageView.snp.centerX)
-            make.width.equalTo(profileImageView.snp.width)
+            make.centerX.equalToSuperview()
         }
     }
 }

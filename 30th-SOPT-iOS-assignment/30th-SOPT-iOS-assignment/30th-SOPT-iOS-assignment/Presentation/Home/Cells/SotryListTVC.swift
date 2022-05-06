@@ -25,14 +25,18 @@ class StoryListTVC: UITableViewCell, UITableViewRegisterable {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 4
         layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 58, height: 84)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
         return cv
     }()
     
     // MARK: - View Life Cycles
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        setUI()
         setLayout()
         registerCell()
     }
@@ -48,6 +52,10 @@ class StoryListTVC: UITableViewCell, UITableViewRegisterable {
     }
     
     // MARK: - Methods
+    
+    private func setUI() {
+        self.backgroundColor = .white
+    }
     
     private func registerCell() {
         StoryCVC.register(target: storyCollectionView)
