@@ -158,6 +158,7 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
         nameLabel.text = data.username
         postImageView.image = UIImage(named: "\(data.postImage)")
         likeCountLabel.text = "좋아요 \(data.likeCount)개"
+        moreCommentButton.setTitle("댓글 \(data.commentCount)개 모두 보기", for: .normal)
         contentUsernameLabel.text = data.username
         contentLabel.text = data.postContent
     }
@@ -166,6 +167,7 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
     
     private func setUI() {
         self.backgroundColor = .white
+        self.selectionStyle = .none
     }
     
     private func setLayout() {
@@ -194,8 +196,6 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
         postImageView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(profileImageView.snp.bottom).offset(12)
-            make.width.equalTo(UIScreen.main.bounds.width)
-            make.height.equalTo(300)
         }
         
         contentButtonStackView.snp.makeConstraints { make in
