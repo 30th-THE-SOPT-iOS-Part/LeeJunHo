@@ -15,7 +15,6 @@ final class HomeVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     // MARK: - Bind
@@ -27,6 +26,8 @@ final class HomeVC: BaseVC {
     override func initialize() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem?.tintColor = .black
+        navigationController?.isToolbarHidden = false
+        navigationController?.isNavigationBarHidden = false
         
         view.backgroundColor = .brown
     }
