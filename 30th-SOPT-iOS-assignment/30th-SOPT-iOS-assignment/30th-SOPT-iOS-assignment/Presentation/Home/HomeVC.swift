@@ -7,6 +7,10 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
+import SnapKit
+
 final class HomeVC: BaseVC {
     
     // MARK: - Properties
@@ -26,8 +30,6 @@ final class HomeVC: BaseVC {
     override func initialize() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
         self.navigationItem.backBarButtonItem?.tintColor = .black
-        navigationController?.isToolbarHidden = false
-        navigationController?.isNavigationBarHidden = false
         
         view.backgroundColor = .brown
     }
