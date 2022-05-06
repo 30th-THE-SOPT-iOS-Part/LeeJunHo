@@ -52,6 +52,7 @@
 		EBC1871227FF8F64007016F0 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1871127FF8F64007016F0 /* PasswordViewModel.swift */; };
 		EBC1871A27FF9128007016F0 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1871927FF9128007016F0 /* AuthButton.swift */; };
 		EBC1871C27FF9130007016F0 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1871B27FF9130007016F0 /* AuthTextField.swift */; };
+		EBE155A4282578F400F25038 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE155A3282578F400F25038 /* CustomNavigationBar.swift */; };
 		EBFEA38727FF736C003FADB7 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38627FF736C003FADB7 /* RxCocoa */; };
 		EBFEA38927FF736C003FADB7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38827FF736C003FADB7 /* RxRelay */; };
 		EBFEA38B27FF736C003FADB7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EBFEA38A27FF736C003FADB7 /* RxSwift */; };
@@ -106,6 +107,7 @@
 		EBC1871127FF8F64007016F0 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		EBC1871927FF9128007016F0 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
 		EBC1871B27FF9130007016F0 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		EBE155A3282578F400F25038 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +291,7 @@
 		EBC1871327FF9098007016F0 /* UIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				EBE155A2282578E200F25038 /* Navigation */,
 				EBC1871827FF9120007016F0 /* Auth */,
 			);
 			path = UIComponent;
@@ -301,6 +304,14 @@
 				EBC1871B27FF9130007016F0 /* AuthTextField.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		EBE155A2282578E200F25038 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				EBE155A3282578F400F25038 /* CustomNavigationBar.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		EBFEA38F27FF7681003FADB7 /* Global */ = {
@@ -616,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE155A4282578F400F25038 /* CustomNavigationBar.swift in Sources */,
 				EBC07E0928251CD6002C3501 /* StoryCVC.swift in Sources */,
 				EB9A3C6C28127EC7009DA924 /* MainTBC.swift in Sources */,
 				EB67C6A0281285300041DCFD /* HomeVC.swift in Sources */,

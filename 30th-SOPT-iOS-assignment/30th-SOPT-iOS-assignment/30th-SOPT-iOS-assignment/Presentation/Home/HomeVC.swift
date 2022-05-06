@@ -17,6 +17,29 @@ final class HomeVC: BaseVC {
     
     let viewModel = HomeViewModel()
     
+    private let navigationBar = CustomNavigationBar()
+        .addLeftButtonItem(image: ImageLiterals.Home.addIcon!)
+        .addLeftButtonItem(image: ImageLiterals.Home.unlikeIcon!)
+        .addLeftButtonItem(image: ImageLiterals.Home.shareIcon!)
+        .addLeftButtonAction {
+            print(1)
+        }
+        .addLeftButtonAction {
+            print(2)
+        }
+        .addLeftButtonAction {
+            print(3)
+        }
+        .leftButtonSpacing(16)
+        .build()
+    
+    private let instaLogoImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = ImageLiterals.Home.instagram_small
+        iv.contentMode = .scaleAspectFill
+        return iv
+    }()
+    
     private lazy var homeTableView: UITableView = {
         let tv = UITableView()
         tv.separatorStyle = .none
@@ -78,16 +101,30 @@ final class HomeVC: BaseVC {
         view.backgroundColor = .white
     }
     
-    override func setLayout() {
-        view.addSubviews(homeTableView)
-        
-        homeTableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+    // Builder 패턴 적용한 커스텀 내비바
+    override func configUI() {
+
     }
     
-    override func configUI() {
+    override func setLayout() {
+        view.addSubviews(navigationBar, homeTableView)
         
+        navigationBar.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        navigationBar.addSubviews(instaLogoImageView)
+        
+        instaLogoImageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(14)
+        }
+        
+        homeTableView.snp.makeConstraints { make in
+            make.top.equalTo(navigationBar.snp.bottom)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
 }
 

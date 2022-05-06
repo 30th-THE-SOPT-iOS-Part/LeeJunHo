@@ -43,6 +43,7 @@ struct ImageLiterals {
         static let unlikeIcon = UIImage(named: "icn_unlike")
         static let moreIcon = UIImage(named: "icn_more")
         static let shareIcon = UIImage(named: "icn_share")
+        static let addIcon = UIImage(named: "icn_add")
         
         static let instagram_small = UIImage(named: "logo_instagram_small")
     }
