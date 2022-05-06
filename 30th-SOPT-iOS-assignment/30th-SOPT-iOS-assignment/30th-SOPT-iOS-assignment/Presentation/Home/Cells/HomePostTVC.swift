@@ -116,7 +116,9 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
     
     private let moreCommentButton: UIButton = {
         let bt = UIButton()
+        bt.setTitleColor(UIColor.black, for: .normal)
         bt.setTitle("댓글 10개 모두 보기", for: .normal)
+        bt.titleLabel?.font = UIFont.systemFont(ofSize: 10)
         return bt
     }()
     
@@ -154,8 +156,10 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
     func setData(data: Home.PostDataModel) {
         profileImageView.image = UIImage(named: "\(data.userImage)")
         nameLabel.text = data.username
-        contentUsernameLabel.text = data.username
         postImageView.image = UIImage(named: "\(data.postImage)")
+        likeCountLabel.text = "좋아요 \(data.likeCount)개"
+        contentUsernameLabel.text = data.username
+        contentLabel.text = data.postContent
     }
     
     // MARK: UI & Layout
@@ -215,8 +219,8 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
         }
         
         contentLabel.snp.makeConstraints { make in
-            make.leading.equalTo(likeCountLabel.snp.trailing).offset(4)
-            make.centerY.equalTo(likeCountLabel.snp.centerY)
+            make.leading.equalTo(contentUsernameLabel.snp.trailing).offset(4)
+            make.centerY.equalTo(contentUsernameLabel.snp.centerY)
         }
         
         moreCommentButton.snp.makeConstraints { make in
