@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxSwift
+import RxCocoa
 import SnapKit
 
 class StoryListTVC: UITableViewCell, UITableViewRegisterable {
@@ -15,14 +17,24 @@ class StoryListTVC: UITableViewCell, UITableViewRegisterable {
     
     static var isFromNib = false
     
+    private var disposeBag = DisposeBag()
+    
     private let guideImageView = UIImageView()
+    
+    private lazy var storyCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 4
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return cv
+    }()
     
     // MARK: - View Life Cycles
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        setUI()
         setLayout()
+        registerCell()
     }
     
     required init?(coder: NSCoder) {
@@ -32,25 +44,30 @@ class StoryListTVC: UITableViewCell, UITableViewRegisterable {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        disposeBag = DisposeBag()
     }
     
     // MARK: - Methods
     
-    func setData(data: Home.StoryDataModel) {
-        guideImageView.image = UIImage(named: "\(data.users[0].userImage)")
+    private func registerCell() {
+        StoryCVC.register(target: storyCollectionView)
+        
     }
     
-    private func setUI() {
-        guideImageView.contentMode = .scaleAspectFill
+    func bind(data: Home.StoryDataModel) {
+        Observable.of(data.users)
+            .bind(to: storyCollectionView.rx.items(
+                cellIdentifier: StoryCVC.className, cellType: StoryCVC.self)) { (row, element, cell) in
+                    cell.setData(username: element.username, userImage: element.userImage)
+                }.disposed(by: disposeBag)
     }
     
     private func setLayout() {
-        self.contentView.addSubview(guideImageView)
+        self.contentView.addSubview(storyCollectionView)
         
-        guideImageView.snp.makeConstraints { make in
+        storyCollectionView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.width.equalTo(UIScreen.main.bounds.width)
-            make.height.equalTo(300)
+            make.width.height.equalToSuperview()
         }
     }
 }

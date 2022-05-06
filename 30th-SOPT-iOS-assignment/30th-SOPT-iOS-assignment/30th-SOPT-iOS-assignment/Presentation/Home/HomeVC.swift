@@ -22,6 +22,7 @@ final class HomeVC: BaseVC {
         tv.separatorStyle = .none
         tv.backgroundColor = .systemGray4
         tv.rowHeight = UITableView.automaticDimension
+        tv.dataSource = nil
         return tv
     }()
     
@@ -47,7 +48,7 @@ final class HomeVC: BaseVC {
                 case .story:
                     let storyData = item as! Home.StoryDataModel
                     guard let storyListCell = tableView.dequeueReusableCell(withIdentifier: StoryListTVC.className) as? StoryListTVC else {return UITableViewCell() }
-                    storyListCell.setData(data: storyData)
+                    storyListCell.bind(data: storyData)
                     return storyListCell
                     
                 case .post:
@@ -93,6 +94,10 @@ final class HomeVC: BaseVC {
 
 extension HomeVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 350
+        if indexPath.row == 0 {
+            return 84
+        } else {
+            return 450
+        }
     }
 }
