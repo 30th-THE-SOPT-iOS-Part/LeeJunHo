@@ -39,7 +39,7 @@ struct ImageLiterals {
     struct Home {
         static let bookMarkIcon = UIImage(named: "icn_bookmark")
         static let commentIcon = UIImage(named: "icn_comment")
-        static let likeIcon = UIImage(named: "icn_likek")
+        static let likeIcon = UIImage(named: "icn_like")
         static let unlikeIcon = UIImage(named: "icn_unlike")
         static let moreIcon = UIImage(named: "icn_more")
         static let shareIcon = UIImage(named: "icn_share")

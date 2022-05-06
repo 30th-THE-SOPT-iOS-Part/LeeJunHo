@@ -96,7 +96,7 @@ extension HomeVC: UITableViewDelegate {
         if indexPath.row == 0 {
             return 84
         } else {
-            return 450
+            return UITableView.automaticDimension
         }
     }
 }
