@@ -12,20 +12,16 @@ protocol BaseTargetType: TargetType { }
 
 extension BaseTargetType {
     
-    var baseURL: URL {
-        return URL(string: Config.Network.baseURL)!
-    }
-    
     var headers: [String: String]? {
         if let token = UserDefaults.standard.value(forKey: Const.UserDefaultKey.token) {
             let header = [
-                "content-Type": "applcation/json",
-                "Authorization": "Bearer \(String(describing: token))"
+                "Content-Type" : "application/json",
+                "Authorization" : "Bearer \(String(describing: token))"
             ]
             return header
         } else {
             let header = [
-                "content-Type": "applcation/json"
+                "Content-Type" : "application/json"
             ]
             return header
         }
