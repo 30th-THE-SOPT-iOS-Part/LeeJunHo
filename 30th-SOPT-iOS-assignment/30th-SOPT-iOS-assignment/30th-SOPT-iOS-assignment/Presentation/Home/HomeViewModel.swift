@@ -20,18 +20,20 @@ final class HomeViewModel: ViewModelType {
 
     // MARK: - Properties
     
-    private let passwordUseCase: PasswordUseCase
+    var contentList = BehaviorRelay<[HomeContent]>(value: [])
     
     // MARK: - Initializer
-    
-    init() {
-        passwordUseCase = DefaultPasswordUseCase()
-    }
     
     // MARK: Methods
 
     func transform(from input: Input, disposeBag: DisposeBag) -> Output {
         self.configureInput(input, disposeBag: disposeBag)
+        var contentList: [HomeContent] = []
+        
+        contentList.append(Home.StoryDataModel.sample)
+        contentList += Home.PostDataModel.sample
+        
+        self.contentList.accept(contentList)
         return createOutput(from: input, disposeBag: disposeBag)
     }
 
@@ -50,5 +52,16 @@ final class HomeViewModel: ViewModelType {
         output.contentList.accept(contentList)
         
         return output
+    }
+    
+    func fetchLike(index: Int, selected: Bool) {
+        var contentList: [HomeContent] = []
+        
+        if let content = self.contentList.value[0] as? Home.StoryDataModel {
+            contentList.append(content)
+        }
+        if let content1 = self.contentList.value[] as? Home.StoryDataModel {
+            contentList.append(content)
+        }
     }
 }

@@ -8,12 +8,19 @@
 import UIKit
 
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class HomePostTVC: UITableViewCell, UITableViewRegisterable {
     
     // MARK: - Properties
     
     static var isFromNib = false
+    
+    private var disposeBag = DisposeBag()
+    
+    internal var likeButtonTapped = PublishRelay<Bool>()
+    private var likeCount = 0
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -50,9 +57,13 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
         return iv
     }()
     
-    private let likeButton: UIButton = {
+    private lazy var likeButton: UIButton = {
         let bt = UIButton(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
-        bt.setImage(ImageLiterals.Home.likeIcon, for: .normal)
+        bt.setImage(ImageLiterals.Home.likeIcon, for: .selected)
+        bt.setImage(ImageLiterals.Home.unlikeIcon, for: .normal)
+        bt.addAction(UIAction(handler: { _ in
+            self.likeButtonTapped.accept(bt.isSelected)
+        }), for: .touchUpInside)
         return bt
     }()
 
@@ -128,6 +139,7 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
 
         setUI()
         setLayout()
+        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -148,7 +160,7 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
     
     // MARK: - Methods
     
-    func updateLayout(){
+    private func updateLayout(){
         self.setNeedsLayout()
         self.layoutIfNeeded()
     }
@@ -158,16 +170,35 @@ class HomePostTVC: UITableViewCell, UITableViewRegisterable {
         nameLabel.text = data.username
         postImageView.image = UIImage(named: "\(data.postImage)")
         likeCountLabel.text = "좋아요 \(data.likeCount)개"
+        likeButton.isSelected = data.liked
+        likeCount = data.likeCount
         moreCommentButton.setTitle("댓글 \(data.commentCount)개 모두 보기", for: .normal)
         contentUsernameLabel.text = data.username
         contentLabel.text = data.postContent
+    }
+    
+    private func bind() {
+        likeButtonTapped
+            .throttleOnMain(.seconds(1))
+            .map { state -> String in
+                if state {
+                    self.likeButton.isSelected.toggle()
+                    self.likeCount -= 1
+                    return "좋아요 \(self.likeCount)개"
+                } else {
+                    self.likeButton.isSelected.toggle()
+                    self.likeCount += 1
+                    return "좋아요 \(self.likeCount)개"
+                }
+            }
+            .bind(to: likeCountLabel.rx.text)
+            .disposed(by: disposeBag)
     }
     
     // MARK: UI & Layout
     
     private func setUI() {
         self.backgroundColor = .white
-        self.selectionStyle = .none
     }
     
     private func setLayout() {

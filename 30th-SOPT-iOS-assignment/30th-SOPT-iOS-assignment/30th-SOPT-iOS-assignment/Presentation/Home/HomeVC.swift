@@ -45,6 +45,7 @@ final class HomeVC: BaseVC {
         tv.separatorStyle = .none
         tv.backgroundColor = .white
         tv.clipsToBounds = true
+        tv.allowsSelection = false
         return tv
     }()
     
@@ -64,7 +65,7 @@ final class HomeVC: BaseVC {
         
         let output = self.viewModel.transform(from: input, disposeBag: disposeBag)
         
-        output.contentList
+        viewModel.contentList
             .bind(to: homeTableView.rx.items) { (tableView,index,item) -> UITableViewCell in
                 switch(item.case){
                 case .story:
@@ -77,6 +78,11 @@ final class HomeVC: BaseVC {
                     let postData = item as! Home.PostDataModel
                     guard let homePostCell = tableView.dequeueReusableCell(withIdentifier: HomePostTVC.className) as? HomePostTVC else {return UITableViewCell() }
                     homePostCell.setData(data: postData)
+                    homePostCell.likeButtonTapped
+                        .bind {
+                            self.viewModel.fetchLike(index: Int, selected: $0)
+                        }.disposed(by: self.disposeBag)
+                    homePostCell.contentView.isUserInteractionEnabled = false
                     return homePostCell
                 }
             }.disposed(by: disposeBag)
