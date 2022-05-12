@@ -76,8 +76,11 @@ final class MainTBC: UITabBarController {
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = unselectedImage
         nav.tabBarItem.selectedImage = selectedImage
-        nav.navigationBar.tintColor = .clear
-        nav.navigationBar.backgroundColor = .clear
+        nav.navigationBar.tintColor = .black
+        nav.navigationBar.backgroundColor = .white
+        nav.isNavigationBarHidden = true
+        nav.navigationBar.isHidden = true
+        
         nav.navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
         nav.navigationItem.backBarButtonItem?.tintColor = .black
         return nav
