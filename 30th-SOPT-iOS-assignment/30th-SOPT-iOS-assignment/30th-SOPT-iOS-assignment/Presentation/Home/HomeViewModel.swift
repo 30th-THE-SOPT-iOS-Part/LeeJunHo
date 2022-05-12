@@ -68,6 +68,5 @@ final class HomeViewModel: ViewModelType {
         newContent += postData
         
         contentList.accept(newContent)
-        print(index)
     }
 }
