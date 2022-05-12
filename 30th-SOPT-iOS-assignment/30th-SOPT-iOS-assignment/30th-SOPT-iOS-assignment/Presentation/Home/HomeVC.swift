@@ -63,10 +63,11 @@ final class HomeVC: BaseVC {
     override func bind() {
         let input = HomeViewModel.Input()
         
-        let output = self.viewModel.transform(from: input, disposeBag: disposeBag)
+        self.viewModel.transform(from: input, disposeBag: disposeBag)
         
         viewModel.contentList
-            .bind(to: homeTableView.rx.items) { (tableView,index,item) -> UITableViewCell in
+            .bind(to: homeTableView.rx.items) { [weak self ](tableView,index,item) -> UITableViewCell in
+                guard let self = self else { return UITableViewCell() }
                 switch(item.case){
                 case .story:
                     let storyData = item as! Home.StoryDataModel
@@ -77,11 +78,15 @@ final class HomeVC: BaseVC {
                 case .post:
                     let postData = item as! Home.PostDataModel
                     guard let homePostCell = tableView.dequeueReusableCell(withIdentifier: HomePostTVC.className) as? HomePostTVC else {return UITableViewCell() }
-                    homePostCell.setData(data: postData)
-                    homePostCell.likeButtonTapped
-                        .bind {
-                            self.viewModel.fetchLike(index: Int, selected: $0)
-                        }.disposed(by: self.disposeBag)
+                    homePostCell.setData(data: postData, index: index)
+                    homePostCell.likeButton.rx.tap
+                        .throttleOnMain(.seconds(1))
+                        .asDriver(onErrorJustReturn: ())
+                        .drive(onNext: {
+                            homePostCell.disposeBag = DisposeBag()
+                                guard let cellIndex = homePostCell.cellIndex else { return }
+                            self.viewModel.fetchLike(index: cellIndex, selected: homePostCell.likeButton.isSelected)
+                        }).disposed(by: homePostCell.disposeBag)
                     homePostCell.contentView.isUserInteractionEnabled = false
                     return homePostCell
                 }

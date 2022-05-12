@@ -44,24 +44,30 @@ final class HomeViewModel: ViewModelType {
     private func createOutput(from input: Input, disposeBag: DisposeBag) -> Output {
         let output = Output()
 
-        var contentList: [HomeContent] = []
-        
-        contentList.append(Home.StoryDataModel.sample)
-        contentList += Home.PostDataModel.sample
-        
-        output.contentList.accept(contentList)
-        
+        // output만들 필요 없지만...
         return output
     }
     
     func fetchLike(index: Int, selected: Bool) {
-        var contentList: [HomeContent] = []
+        var prevData = contentList.value
+        guard let storyData = prevData.first else { return }
+        prevData.removeFirst()
+        guard var postData = prevData as? [Home.PostDataModel] else { return }
         
-        if let content = self.contentList.value[0] as? Home.StoryDataModel {
-            contentList.append(content)
+        postData[index-1].liked.toggle()
+        switch selected {
+        case true:
+            postData[index-1].likeCount -= 1
+        case false:
+            postData[index-1].likeCount += 1
         }
-        if let content1 = self.contentList.value[] as? Home.StoryDataModel {
-            contentList.append(content)
-        }
+        
+        var newContent: [HomeContent] = []
+        
+        newContent.append(storyData)
+        newContent += postData
+        
+        contentList.accept(newContent)
+        print(index)
     }
 }

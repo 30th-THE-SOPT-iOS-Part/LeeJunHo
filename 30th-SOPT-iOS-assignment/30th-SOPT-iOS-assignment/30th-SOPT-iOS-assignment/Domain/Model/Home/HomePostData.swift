@@ -14,9 +14,9 @@ extension Home{
         let userImage: String
         let postImage: String
         let postContent: String
-        let likeCount: Int
+        var likeCount: Int
         let commentCount: Int
-        let liked: Bool
+        var liked: Bool
         
         static let sample: [PostDataModel] = [
             PostDataModel(username: "avatar1", userImage: "avatar1", postImage: "postImage1", postContent: "🌱 기회는 일어나는 것이 아니라 만들어내는 것이다.", likeCount: 13, commentCount: 3, liked: true),
@@ -33,8 +33,8 @@ extension Home{
         let userImage: String
         let postImage: String
         let postContent: String
-        let likeCount: Int
+        var likeCount: Int
         let commentCount: Int
-        let liked: Bool
+        var liked: Bool
     }
 }
