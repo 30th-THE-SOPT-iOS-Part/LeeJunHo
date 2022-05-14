@@ -12,17 +12,17 @@ import Alamofire
 
 enum BaseAPI{
     case sampleAPI(sample : String)
-    // MARK: - 현주
+    // MARK: - 담당 1
     case getPopularTravelList
     
-    // MARK: - 양원
+    // MARK: - 담당 2
     case postScrapBtn(postId: Int)
     
-    // MARK: - 지훈
+    // MARK: - 담당 3
     case deleteUserWithdraw
     case getPlanPreviewData(idx : Int)
     
-    // MARK: - 준호
+    // MARK: - 담당 4
     case postLogin(name: String, email: String, password: String)
 }
 
@@ -188,33 +188,3 @@ extension BaseAPI: BaseTargetType {
     
     typealias Response = Codable
 }
-
-/* 사용법
- 
- BaseService의 shared를 호출하는 default를 타고가서, getPopulartTravelList 호출
- 
- BaseService.default.getPopularTravelList { result in
- result.success { list in
- self.popularList = []
- if let popular = list {
- self.popularList = popular
- self.downloadImages {
- DispatchQueue.main.asyncAfter(deadline: .now() + 1.7) {
- UIView.animate(withDuration: 0.5) {
- self.mainCardCV.alpha = 0
- }
- }
- DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
- self.mainCardCV.hideSkeleton(transition: .crossDissolve(2))
- UIView.animate(withDuration: 0.5) {
- self.mainCardCV.alpha = 1
- }
- }
- }
- }
- }.catch{ error in
- self.postObserverAction(.showNetworkError)
- }
- }
- 
- */
