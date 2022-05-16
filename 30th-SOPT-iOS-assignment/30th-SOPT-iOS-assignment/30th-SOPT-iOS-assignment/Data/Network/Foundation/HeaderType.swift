@@ -8,17 +8,19 @@
 import Foundation
 
 enum HeaderType {
-    case auth
-    case authWithToken
+    case basic
+    case withToken
+    case multiPart
+    case multiPartWithToken
 }
 
 enum HTTPHeaderField: String {
-    case authentication = "Authorization"
     case contentType = "Content-Type"
     case accesstoken = "accesstoken"
 }
 
-enum ContentType: String {
+enum HeaderContent: String {
     case json = "Application/json"
+    case multiPart = "multipart/form-data"
     case tokenSerial = ""
 }
