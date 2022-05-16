@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct SignIn: Codable {
+    let name: String
+    let email: String
+}
