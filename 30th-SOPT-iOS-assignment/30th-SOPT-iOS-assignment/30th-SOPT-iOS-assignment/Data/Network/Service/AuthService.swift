@@ -17,7 +17,7 @@ class AuthService: BaseService {
 
 extension AuthService {
     
-    func requestSignInAPI(email: String, pw: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+    func requestSignIn(email: String, pw: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         AF.request(AuthRouter.requestSignIn(email: email, pw: pw)).responseData { response in
             switch response.result {
             case .success:
@@ -33,7 +33,7 @@ extension AuthService {
         }
     }
     
-    func requestSignUpAPI(email: String, name: String, pw: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+    func requestSignUp(email: String, name: String, pw: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         AF.request(AuthRouter.requestSignUp(email: email, name: name, pw: pw)).responseData { response in
             switch response.result {
             case .success:

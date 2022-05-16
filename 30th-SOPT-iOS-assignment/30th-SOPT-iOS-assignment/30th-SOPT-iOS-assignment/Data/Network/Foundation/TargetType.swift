@@ -16,6 +16,8 @@ protocol TargetType: URLRequestConvertible {
     var header: HeaderType { get }
 }
 
+// MARK: asURLRequest()
+
 extension TargetType {
     
     // URLRequestConvertible 구현
@@ -67,11 +69,27 @@ extension TargetType {
     }
 }
 
+// MARK: baseURL & header
+
+extension TargetType {
+    var baseURL: String {
+        return APIConstants.baseURL
+    }
+    
+    var header: HeaderType {
+        return HeaderType.auth
+    }
+}
+
+// MARK: ParameterType
+
 enum RequestParams {
     case query(_ parameter: Codable?)
     case body(_ parameter: Codable?)
     case requestParameters(_ parameter: [String : Any])
 }
+
+// MARK: toDictionary
 
 extension Encodable {
     func toDictionary() -> [String: Any] {

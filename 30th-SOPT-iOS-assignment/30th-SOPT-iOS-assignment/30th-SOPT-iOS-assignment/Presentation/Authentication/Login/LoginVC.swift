@@ -133,11 +133,14 @@ final class LoginVC: BaseVC {
     
     private func presentWelcomeVC() {
         // TODO: - 동일 택필에서 email 형식인지 username 형식인지 판단하는 비즈니스 로직 뷰모델에 작성하기
-        let nextVC = WelcomeVC(user: User(email: "",
-                                          username: emailTextField.text,
-                                          password: passwordTextField.text))
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC, animated: true)
+        AuthService.shared.requestSignIn(email: "sopt", pw: "sopt123") { <#NetworkResult<Any>#> in
+            <#code#>
+        }
+//        let nextVC = WelcomeVC(user: User(email: "",
+//                                          username: emailTextField.text,
+//                                          password: passwordTextField.text))
+//        nextVC.modalPresentationStyle = .fullScreen
+//        self.present(nextVC, animated: true)
     }
     
     private func pushUsernameVC() {
