@@ -1,5 +1,5 @@
 //
-//  BaseAPI.swift
+//  BaseService.swift
 //  30th-SOPT-iOS-assignment
 //
 //  Created by Junho Lee on 2022/05/15.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class BaseAPI {
+class BaseService {
     
     func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, type: T.Type) -> NetworkResult<Any> {
         let decoder = JSONDecoder()

@@ -6,46 +6,46 @@
 //
 
 import Foundation
+
 import Alamofire
 
-enum AuthService {
-    case requestSignUp(email: String, name: String, pw: String)
-    case requestSignIn(email: String, pw: String)
+class AuthService: BaseService {
+    static let shared = AuthService()
+    
+    private override init() {}
 }
 
-extension AuthService: BaseTargetType {
+extension AuthService {
     
-    var path: String {
-        switch self {
-        case .requestSignUp:
-            return "/auth/signup"
-        case .requestSignIn:
-            return "/auth/signin"
+    func requestSignInAPI(email: String, pw: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        AF.request(AuthRouter.requestSignIn(email: email, pw: pw)).responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return}
+                let networkResult = self.judgeStatus(by: statusCode, data, type: SignIn.self)
+                
+                completion(networkResult)
+                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
         }
     }
     
-    var method: HTTPMethod {
-        switch self {
-        case .requestSignUp, .requestSignIn:
-            return .post
-        }
-    }
-    
-    var parameters: RequestParams {
-        switch self {
-        case .requestSignUp(let email, let name, let pw):
-            let body: [String : Any] = [
-                "email": email,
-                "name": name,
-                "password": pw
-            ]
-            return .requestParameters(body)
-        case .requestSignIn(let email, let pw):
-            let body: [String : Any] = [
-                "email": email,
-                "password": pw
-            ]
-            return .requestParameters(body)
+    func requestSignUpAPI(email: String, name: String, pw: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        AF.request(AuthRouter.requestSignUp(email: email, name: name, pw: pw)).responseData { response in
+            switch response.result {
+            case .success:
+                guard let statusCode = response.response?.statusCode else { return }
+                guard let data = response.data else { return}
+                let networkResult = self.judgeStatus(by: statusCode, data, type: SignUp.self)
+                
+                completion(networkResult)
+                
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
         }
     }
 }
