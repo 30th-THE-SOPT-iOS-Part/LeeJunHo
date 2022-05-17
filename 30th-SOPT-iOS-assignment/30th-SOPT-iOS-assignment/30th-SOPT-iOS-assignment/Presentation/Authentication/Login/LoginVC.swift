@@ -101,8 +101,9 @@ final class LoginVC: BaseVC {
     
     override func bind() {
         let input = LoginViewModel.Input(
-            emailTextFieldDidChange: emailTextField.rx.text.orEmpty.asObservable(),
-            passwordTextFieldDidChange: passwordTextField.rx.text.orEmpty.asObservable()
+            emailTextField: emailTextField.rx.text.orEmpty.asObservable(),
+            passwordTextField: passwordTextField.rx.text.orEmpty.asObservable(),
+            loginButtonTapped: loginButton.rx.tap.asObservable()
         )
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
@@ -121,6 +122,24 @@ final class LoginVC: BaseVC {
             })
             .disposed(by: disposeBag)
         
+        output.loginResult
+            .asDriver(onErrorJustReturn: 502)
+            .drive(onNext: { [weak self] status in
+                switch status {
+                case 409:
+                    self?.makeAlert(title: "로그인 실패", message: "비밀번호가 올바르지 않습니다")
+                case 404:
+                    self?.makeAlert(title: "로그인 실패", message: "존재하지 않는 사용자입니다")
+                case 200:
+                    self?.makeAlert(title: "로그인 성공") { [weak self] UIAlertAction in
+                        self?.presentMainTBC()
+                    }
+                default:
+                    print("ServerErr")
+                }
+            })
+            .disposed(by: disposeBag)
+        
         emailTextField.clearButtonTapped
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { [weak self] isEnabled in
@@ -132,30 +151,7 @@ final class LoginVC: BaseVC {
     // MARK: - Custom Methods
     
     private func presentWelcomeVC() {
-        AuthService.shared.requestSignIn(email: emailTextField.text ?? "", pw: passwordTextField.text ?? "") { networkResult in
-            switch networkResult {
-            case .success(let message):
-                if let message = message as? String {
-                    self.makeAlert(title: message) { [weak self] UIAlertAction in
-                        self?.presentMainTBC()
-                    }
-                }
-            case .requestErr(let status):
-                if let status = status as? Int {
-                    switch status {
-                    case 404:
-                        self.makeAlert(title: "로그인 실패", message: "존재하지 않는 사용자입니다")
-                    case 409:
-                        self.makeAlert(title: "로그인 실패", message: "비밀번호가 올바르지 않습니다")
-                    default:
-                        print("requestErr - requestSignIn")
-                    }
-                }
-            case .pathErr:
-                print("pathErr - requestSignIn")
-            default: print("ServerErr")
-            }
-        }
+        
     }
     
     private func pushUsernameVC() {
