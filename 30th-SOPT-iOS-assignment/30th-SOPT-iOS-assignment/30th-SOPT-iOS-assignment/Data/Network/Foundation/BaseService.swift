@@ -8,18 +8,37 @@
 import Foundation
 
 class BaseService {
+    enum DecodingMode {
+        case model
+        case message
+        case general
+    }
     
-    func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, type: T.Type) -> NetworkResult<Any> {
+    func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, type: T.Type, decodingMode: DecodingMode = .general) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<T>.self, from: data)
+        guard let decodedData = try? decoder.decode(GeneralResponse<T>.self, from: data)
         else { return .pathErr }
+        
         switch statusCode {
-        case 200:
-            return .success(decodedData.data ?? "None-Data")
+        case 200..<300:
+            
+            switch decodingMode {
+            case .model:
+                return .success(decodedData.data ?? "None-Data")
+                
+            case .message:
+                return .success(decodedData.message ?? "None-Data")
+                
+            case .general:
+                return .success(decodedData)
+            }
+            
         case 400..<500:
             return .requestErr(decodedData.message ?? "Request-Err")
+            
         case 500:
             return .serverErr
+            
         default:
             return .networkFail
         }

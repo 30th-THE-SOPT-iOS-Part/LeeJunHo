@@ -1,5 +1,5 @@
 //
-//  GenericResponse.swift
+//  GeneralResponse.swift
 //  30th-SOPT-iOS-assignment
 //
 //  Created by Junho Lee on 2022/05/15.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GenericResponse<T> {
+struct GeneralResponse<T> {
     let success : Bool
     let status: Int
     let message: String?
@@ -21,7 +21,7 @@ struct GenericResponse<T> {
     }
 }
 
-extension GenericResponse: Decodable where T: Decodable  {
+extension GeneralResponse: Decodable where T: Decodable  {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         success = try container.decode(Bool.self, forKey: .success)

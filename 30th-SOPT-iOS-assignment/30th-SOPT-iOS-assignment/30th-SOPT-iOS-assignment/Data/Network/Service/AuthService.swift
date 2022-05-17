@@ -23,8 +23,7 @@ extension AuthService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.data else { return}
-                let networkResult = self.judgeStatus(by: statusCode, data, type: SignIn.self)
-                
+                let networkResult = self.judgeStatus(by: statusCode, data, type: SignIn.self, decodingMode: .message)
                 completion(networkResult)
                 
             case .failure(let err):

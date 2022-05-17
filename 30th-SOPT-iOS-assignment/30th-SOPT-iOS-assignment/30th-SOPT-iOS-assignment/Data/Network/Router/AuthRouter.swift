@@ -13,7 +13,7 @@ enum AuthRouter {
     case requestSignIn(email: String, pw: String)
 }
 
-extension AuthRouter: TargetType {
+extension AuthRouter: Router {
     
     var path: String {
         switch self {

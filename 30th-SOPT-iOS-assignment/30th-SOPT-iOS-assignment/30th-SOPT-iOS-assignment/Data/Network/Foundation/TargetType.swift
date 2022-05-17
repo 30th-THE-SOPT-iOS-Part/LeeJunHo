@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-protocol TargetType: URLRequestConvertible {
+protocol Router: URLRequestConvertible {
     var baseURL: String { get }
     var method: HTTPMethod { get }
     var path: String { get }
@@ -18,7 +18,7 @@ protocol TargetType: URLRequestConvertible {
 
 // MARK: asURLRequest()
 
-extension TargetType {
+extension Router {
     
     // URLRequestConvertible 구현
     func asURLRequest() throws -> URLRequest {
@@ -35,7 +35,7 @@ extension TargetType {
         
         switch header {
             
-        case .basic:
+        case .default:
             request.setValue(HeaderContent.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
             
         case .withToken:
@@ -80,13 +80,13 @@ extension TargetType {
 
 // MARK: baseURL & header
 
-extension TargetType {
+extension Router {
     var baseURL: String {
         return APIConstants.baseURL
     }
     
     var header: HeaderType {
-        return HeaderType.auth
+        return HeaderType.default
     }
 }
 
