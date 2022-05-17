@@ -38,7 +38,7 @@ extension AuthService {
             case .success:
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let data = response.data else { return}
-                let networkResult = self.judgeStatus(by: statusCode, data, type: SignUp.self)
+                let networkResult = self.judgeStatus(by: statusCode, data, type: SignUp.self, decodingMode: .message)
                 
                 completion(networkResult)
                 

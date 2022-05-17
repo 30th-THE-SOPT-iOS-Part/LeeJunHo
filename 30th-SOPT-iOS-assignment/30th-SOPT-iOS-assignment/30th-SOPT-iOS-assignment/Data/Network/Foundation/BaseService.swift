@@ -8,7 +8,7 @@
 import Foundation
 
 class BaseService {
-    enum DecodingMode {
+    @frozen enum DecodingMode {
         case model
         case message
         case general
@@ -34,7 +34,7 @@ class BaseService {
             }
             
         case 400..<500:
-            return .requestErr(decodedData.message ?? "Request-Err")
+            return .requestErr(decodedData.status)
             
         case 500:
             return .serverErr

@@ -140,12 +140,12 @@ final class LoginVC: BaseVC {
                         self?.presentMainTBC()
                     }
                 }
-            case .requestErr(let message):
-                if let message = message as? String {
-                    switch message {
-                    case "Not Found":
+            case .requestErr(let status):
+                if let status = status as? Int {
+                    switch status {
+                    case 404:
                         self.makeAlert(title: "로그인 실패", message: "존재하지 않는 사용자입니다")
-                    case "Invalid":
+                    case 409:
                         self.makeAlert(title: "로그인 실패", message: "비밀번호가 올바르지 않습니다")
                     default:
                         print("requestErr - requestSignIn")
@@ -153,7 +153,7 @@ final class LoginVC: BaseVC {
                 }
             case .pathErr:
                 print("pathErr - requestSignIn")
-            default: print("Err")
+            default: print("ServerErr")
             }
         }
     }

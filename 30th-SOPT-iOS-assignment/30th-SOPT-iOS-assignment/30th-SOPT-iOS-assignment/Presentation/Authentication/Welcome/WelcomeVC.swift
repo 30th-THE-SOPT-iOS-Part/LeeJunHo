@@ -46,7 +46,7 @@ final class WelcomeVC: BaseVC {
         let bt = AuthButton()
         bt.setTitle("완료하기", for: .normal)
         bt.addAction(UIAction(handler: { _ in
-            self.tapToMainTBC()
+            self.requestSignUp()
         }), for: .touchUpInside)
         bt.isEnabled = true
         return bt
@@ -57,7 +57,7 @@ final class WelcomeVC: BaseVC {
         bt.setTitle("다른 계정으로 로그인하기", for: .normal)
         bt.setTitleColor(UIColor.systemBlue, for: .normal)
         bt.addAction(UIAction(handler: { _ in
-            self.tapToRootVC()
+            self.popToLoginVC()
         }), for: .touchUpInside)
         bt.titleLabel?.font = .systemFont(ofSize: 13)
         return bt
@@ -81,23 +81,35 @@ final class WelcomeVC: BaseVC {
     
     // MARK: - Custom Methods
     
-    private func tapToRootVC() {
+    private func popToLoginVC() {
         guard let naviVC = self.presentingViewController as? UINavigationController else { return }
         naviVC.popToRootViewController(animated: false)
         self.dismiss(animated: true)
     }
     
-    private func tapToMainTBC() {
-        let nextVC = MainTBC()
-        guard let window = self.view.window else { return }
-        window.addSubview(nextVC.view)
-        nextVC.view.frame.origin = CGPoint(x: 0, y: window.frame.height)
-        
-        UIView.transition(with: nextVC.view, duration: 0.2, options: .curveEaseInOut) {
-            nextVC.view.frame.origin = CGPoint(x: 0, y: 0)
-        } completion: { _ in
-            nextVC.view.removeFromSuperview()
-            window.rootViewController = nextVC
+    private func requestSignUp() {
+        AuthService.shared.requestSignUp(email: user.email, name: user.username, pw: user.password) { networkResult in
+            switch networkResult {
+            case .success(let message):
+                print(message)
+                if let message = message as? String {
+                    self.makeAlert(title: message) { [weak self] UIAlertAction in
+                        self?.popToLoginVC()
+                    }
+                }
+            case .requestErr(let status):
+                if let status = status as? Int {
+                    switch status {
+                    case 409:
+                        self.makeAlert(title: "회원가입 실패", message: "이미 존재하는 아이디입니다.")
+                    default:
+                        print("requestErr - requestSignUp")
+                    }
+                }
+            case .pathErr:
+                print("pathErr - requestSignUp")
+            default: print("ServerErr")
+            }
         }
     }
     
