@@ -60,12 +60,7 @@ import RxCocoa
 
 // MARK: - Usecase 이용 뷰모델
 final class LoginViewModel {
-    enum AlertType {
-        case success
-        case noneUser
-        case invalidPassword
-    }
-    
+
     struct Input {
         let emailTextField: Observable<String>
         let passwordTextField: Observable<String>
@@ -134,9 +129,7 @@ final class LoginViewModel {
                 output.clearButtonHidden.accept(hiddenStatus)
             })
             .disposed(by: disposeBag)
-        
-
-
+    
         return output
     }
 }

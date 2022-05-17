@@ -15,6 +15,8 @@ final class WelcomeVC: BaseVC {
     
     // MARK: - Properties
     
+    private let viewModel = WelcomeViewModel()
+    
     private var user: User
     
     private lazy var titleLabel: UILabel = {
@@ -45,9 +47,6 @@ final class WelcomeVC: BaseVC {
     private lazy var completeButton: AuthButton = {
         let bt = AuthButton()
         bt.setTitle("완료하기", for: .normal)
-        bt.addAction(UIAction(handler: { _ in
-            self.requestSignUp()
-        }), for: .touchUpInside)
         bt.isEnabled = true
         return bt
     }()
@@ -77,6 +76,34 @@ final class WelcomeVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
+    }
+    
+    // MARK: - Bind
+    
+    override func bind() {
+        let input = WelcomeViewModel.Input(name: user.username,
+                                           email: user.email,
+                                           password: user.password,
+                                           completeButtonTapped: completeButton.rx.tap.asObservable())
+        
+        let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
+        
+        output.signUpResult
+            .asDriver(onErrorJustReturn: 502)
+            .drive(onNext: { [weak self] status in
+                switch status {
+                case 409:
+                    self?.makeAlert(title: "회원가입 실패", message: "이미 존재하는 아이디입니다.")
+                case 200:
+                    self?.makeAlert(title: "회원가입 성공") { [weak self] UIAlertAction in
+                        self?.popToLoginVC()
+                    }
+                default:
+                    print("ServerErr")
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Custom Methods
@@ -85,32 +112,6 @@ final class WelcomeVC: BaseVC {
         guard let naviVC = self.presentingViewController as? UINavigationController else { return }
         naviVC.popToRootViewController(animated: false)
         self.dismiss(animated: true)
-    }
-    
-    private func requestSignUp() {
-        AuthService.shared.requestSignUp(email: user.email, name: user.username, pw: user.password) { networkResult in
-            switch networkResult {
-            case .success(let message):
-                print(message)
-                if let message = message as? String {
-                    self.makeAlert(title: message) { [weak self] UIAlertAction in
-                        self?.popToLoginVC()
-                    }
-                }
-            case .requestErr(let status):
-                if let status = status as? Int {
-                    switch status {
-                    case 409:
-                        self.makeAlert(title: "회원가입 실패", message: "이미 존재하는 아이디입니다.")
-                    default:
-                        print("requestErr - requestSignUp")
-                    }
-                }
-            case .pathErr:
-                print("pathErr - requestSignUp")
-            default: print("ServerErr")
-            }
-        }
     }
     
     // MARK: - UI & Layout
