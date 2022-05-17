@@ -84,7 +84,7 @@ final class LoginVC: BaseVC {
     }()
     
     // MARK: - Life Cycles
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -132,29 +132,49 @@ final class LoginVC: BaseVC {
     // MARK: - Custom Methods
     
     private func presentWelcomeVC() {
-        // TODO: - 동일 택필에서 email 형식인지 username 형식인지 판단하는 비즈니스 로직 뷰모델에 작성하기
-        AuthService.shared.requestSignIn(email: "sopt", pw: "sopt123") { networkResult in
+        AuthService.shared.requestSignIn(email: emailTextField.text ?? "", pw: passwordTextField.text ?? "") { networkResult in
             switch networkResult {
-                
-            case .success(_):
-                <#code#>
-            case .requestErr(_):
-                <#code#>
+            case .success(let message):
+                if let message = message as? String {
+                    self.makeAlert(title: message) { [weak self] UIAlertAction in
+                        self?.presentMainTBC()
+                    }
+                }
+            case .requestErr(let message):
+                if let message = message as? String {
+                    switch message {
+                    case "Not Found":
+                        self.makeAlert(title: "로그인 실패", message: "존재하지 않는 사용자입니다")
+                    case "Invalid":
+                        self.makeAlert(title: "로그인 실패", message: "비밀번호가 올바르지 않습니다")
+                    default:
+                        print("requestErr - requestSignIn")
+                    }
+                }
             case .pathErr:
-                <#code#>
-            default: print("default")
+                print("pathErr - requestSignIn")
+            default: print("Err")
             }
         }
-//        let nextVC = WelcomeVC(user: User(email: "",
-//                                          username: emailTextField.text,
-//                                          password: passwordTextField.text))
-//        nextVC.modalPresentationStyle = .fullScreen
-//        self.present(nextVC, animated: true)
     }
     
     private func pushUsernameVC() {
         let nextVC = UsernameVC()
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    private func presentMainTBC() {
+        let nextVC = MainTBC()
+        guard let window = self.view.window else { return }
+        window.addSubview(nextVC.view)
+        nextVC.view.frame.origin = CGPoint(x: 0, y: window.frame.height)
+        
+        UIView.transition(with: nextVC.view, duration: 0.2, options: .curveEaseInOut) {
+            nextVC.view.frame.origin = CGPoint(x: 0, y: 0)
+        } completion: { _ in
+            nextVC.view.removeFromSuperview()
+            window.rootViewController = nextVC
+        }
     }
     
     internal func resetUI() {

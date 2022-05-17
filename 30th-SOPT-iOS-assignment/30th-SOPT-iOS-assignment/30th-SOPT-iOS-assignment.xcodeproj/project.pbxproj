@@ -11,7 +11,7 @@
 		EB0BDAA62830A12E003A9CD7 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAA52830A12E003A9CD7 /* APIConstants.swift */; };
 		EB0BDAA82830A172003A9CD7 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */; };
 		EB0BDAAB2830A1D2003A9CD7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAAA2830A1D2003A9CD7 /* AuthService.swift */; };
-		EB0BDAAD2830A35C003A9CD7 /* GenericResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAAC2830A35C003A9CD7 /* GenericResponse.swift */; };
+		EB0BDAAD2830A35C003A9CD7 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */; };
 		EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AE727FFDCB9009ACE52 /* LoginUseCase.swift */; };
 		EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */; };
 		EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */; };
@@ -40,6 +40,7 @@
 		EBB25FD028312268001416D8 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB25FCF28312268001416D8 /* AuthRouter.swift */; };
 		EBB2605228328A61001416D8 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2605128328A61001416D8 /* SignIn.swift */; };
 		EBB2605428328A66001416D8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2605328328A65001416D8 /* SignUp.swift */; };
+		EBB2605628336318001416D8 /* makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2605528336318001416D8 /* makeAlert.swift */; };
 		EBC07DFD2825181F002C3501 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC07DFC2825181F002C3501 /* ViewModelType.swift */; };
 		EBC07DFF28251837002C3501 /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC07DFE28251837002C3501 /* UITableViewRegisterable.swift */; };
 		EBC07E0128251889002C3501 /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC07E0028251889002C3501 /* getClassName.swift */; };
@@ -74,7 +75,7 @@
 		EB0BDAA52830A12E003A9CD7 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		EB0BDAAA2830A1D2003A9CD7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		EB0BDAAC2830A35C003A9CD7 /* GenericResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericResponse.swift; sourceTree = "<group>"; };
+		EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		EB0C3AE727FFDCB9009ACE52 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		EBB25FCF28312268001416D8 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		EBB2605128328A61001416D8 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
 		EBB2605328328A65001416D8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		EBB2605528336318001416D8 /* makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAlert.swift; sourceTree = "<group>"; };
 		EBC07DFC2825181F002C3501 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EBC07DFE28251837002C3501 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		EBC07E0028251889002C3501 /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC07E0028251889002C3501 /* getClassName.swift */,
+				EBB2605528336318001416D8 /* makeAlert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -589,7 +592,7 @@
 			children = (
 				EBC07E0E28252790002C3501 /* Home */,
 				EB0C3AEE280063CC009ACE52 /* Authentication */,
-				EB0BDAAC2830A35C003A9CD7 /* GenericResponse.swift */,
+				EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -707,7 +710,7 @@
 				EBC1871227FF8F64007016F0 /* PasswordViewModel.swift in Sources */,
 				EBB25FC92831205A001416D8 /* HeaderType.swift in Sources */,
 				EBC07E10282527B5002C3501 /* HomeData.swift in Sources */,
-				EB0BDAAD2830A35C003A9CD7 /* GenericResponse.swift in Sources */,
+				EB0BDAAD2830A35C003A9CD7 /* GeneralResponse.swift in Sources */,
 				EBC1870427FF8665007016F0 /* UIView+.swift in Sources */,
 				EBC1870A27FF8E2E007016F0 /* ImageLiterals.swift in Sources */,
 				EBC1871027FF8F5D007016F0 /* PasswordVC.swift in Sources */,
@@ -736,6 +739,7 @@
 				EBC07E1428252986002C3501 /* HomePostData.swift in Sources */,
 				EBC1870C27FF8F4C007016F0 /* UsernameVC.swift in Sources */,
 				EBC07E1228252981002C3501 /* HomeStoryData.swift in Sources */,
+				EBB2605628336318001416D8 /* makeAlert.swift in Sources */,
 				EB0FE3CA2801E83B005D6DBA /* UILabel+.swift in Sources */,
 				EBC186FB27FF7B37007016F0 /* BaseVC.swift in Sources */,
 				EB0C3AF728009A18009ACE52 /* PasswordUseCase.swift in Sources */,
