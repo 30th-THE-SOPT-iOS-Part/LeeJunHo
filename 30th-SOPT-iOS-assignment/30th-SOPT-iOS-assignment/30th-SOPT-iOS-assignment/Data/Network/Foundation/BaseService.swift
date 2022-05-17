@@ -6,13 +6,24 @@
 //
 
 import Foundation
+import Alamofire
 
 class BaseService {
+
     @frozen enum DecodingMode {
         case model
         case message
         case general
     }
+    
+    let AFManager: Session = {
+        var session = AF
+        let configuration = URLSessionConfiguration.af.default
+        configuration.timeoutIntervalForRequest = NetworkEnvironment.requestTimeOut
+        configuration.timeoutIntervalForResource = NetworkEnvironment.resourceTimeOut
+        session = Session(configuration: configuration)
+        return session
+    }()
     
     func judgeStatus<T: Codable>(by statusCode: Int, _ data: Data, type: T.Type, decodingMode: DecodingMode = .general) -> NetworkResult<Any> {
         let decoder = JSONDecoder()

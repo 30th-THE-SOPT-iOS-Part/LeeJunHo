@@ -7,8 +7,15 @@
 
 import Foundation
 
-struct APIConstants {
+struct URLConstants {
     
     // MARK: - Base URL
     static let baseURL = "http://13.124.62.236"
+}
+
+struct NetworkEnvironment {
+    
+    // MARK: - timeOut
+    static let requestTimeOut = TimeInterval(10)
+    static let resourceTimeOut = TimeInterval(10)
 }

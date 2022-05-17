@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB0BDAA32830A074003A9CD7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB0BDAA22830A074003A9CD7 /* Alamofire */; };
-		EB0BDAA62830A12E003A9CD7 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAA52830A12E003A9CD7 /* APIConstants.swift */; };
+		EB0BDAA62830A12E003A9CD7 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAA52830A12E003A9CD7 /* NetworkConstants.swift */; };
 		EB0BDAA82830A172003A9CD7 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */; };
 		EB0BDAAB2830A1D2003A9CD7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAAA2830A1D2003A9CD7 /* AuthService.swift */; };
 		EB0BDAAD2830A35C003A9CD7 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */; };
@@ -72,7 +72,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB0BDAA52830A12E003A9CD7 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		EB0BDAA52830A12E003A9CD7 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		EB0BDAAA2830A1D2003A9CD7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
@@ -149,13 +149,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		EB0BDAA42830A126003A9CD7 /* Essentials */ = {
+		EB0BDAA42830A126003A9CD7 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
-				EB0BDAA52830A12E003A9CD7 /* APIConstants.swift */,
-				EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */,
+				EB0BDAA52830A12E003A9CD7 /* NetworkConstants.swift */,
 			);
-			path = Essentials;
+			path = Environment;
 			sourceTree = "<group>";
 		};
 		EB0BDAA92830A1A8003A9CD7 /* Service */ = {
@@ -272,6 +271,7 @@
 				EBB25FC82831205A001416D8 /* HeaderType.swift */,
 				EBB25FCA28312199001416D8 /* Router.swift */,
 				EBB25FC528311FA5001416D8 /* BaseService.swift */,
+				EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -582,7 +582,7 @@
 				EBB25FCE28312257001416D8 /* Router */,
 				EBB25FC728312034001416D8 /* Foundation */,
 				EB0BDAA92830A1A8003A9CD7 /* Service */,
-				EB0BDAA42830A126003A9CD7 /* Essentials */,
+				EB0BDAA42830A126003A9CD7 /* Environment */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -746,7 +746,7 @@
 				EB0FE3D428048D49005D6DBA /* Reactive+.swift in Sources */,
 				EB0C3AF1280063E3009ACE52 /* User.swift in Sources */,
 				EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */,
-				EB0BDAA62830A12E003A9CD7 /* APIConstants.swift in Sources */,
+				EB0BDAA62830A12E003A9CD7 /* NetworkConstants.swift in Sources */,
 				EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */,
 				EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */,
 				EB0FE3C62801E044005D6DBA /* UIStackView+.swift in Sources */,

@@ -82,7 +82,7 @@ extension Router {
 
 extension Router {
     var baseURL: String {
-        return APIConstants.baseURL
+        return URLConstants.baseURL
     }
     
     var header: HeaderType {
