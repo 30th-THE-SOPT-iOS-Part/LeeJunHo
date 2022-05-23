@@ -93,7 +93,7 @@ final class PasswordVC: BaseVC {
     // MARK: - Custom Methods
     
     private func presentWelcomeVC() {
-        let nextVC = WelcomeVC(user: User(email: user.email,
+        let nextVC = WelcomeVC(user: User(email: user.username,
                                     username: user.username,
                                     password: passwordTextField.text))
         nextVC.modalPresentationStyle = .overFullScreen

@@ -17,10 +17,11 @@ protocol LoginUseCase {
     func setPasswordText(passwordText: String)
     func activateLoginButton()
     func activateClearButton()
+    func requestSignIn(email: String, password: String) -> Observable<Int>
 }
 
 final class DefaultLoginUseCase: LoginUseCase {
-
+    
     var emailText: String = ""
     
     var passwordText: String = ""
@@ -28,7 +29,9 @@ final class DefaultLoginUseCase: LoginUseCase {
     var loginButtonState = PublishRelay<Bool>()
     
     var clearButtonState = PublishRelay<Bool>()
-        
+    
+    private let service = AuthService.shared
+    
     internal func setEmailText(emailText: String) {
         self.emailText = emailText
         self.activateLoginButton()
@@ -62,4 +65,24 @@ final class DefaultLoginUseCase: LoginUseCase {
         
         clearButtonState.accept(false)
     }
+    
+    internal func requestSignIn(email: String, password: String) -> Observable<Int> {
+        return Observable.create { [weak self] observer -> Disposable in
+            self?.service.requestSignIn(email: email, pw: password) { networkResult in
+                switch networkResult {
+                case .success:
+                    observer.onNext(200)
+                case .requestErr(let status):
+                    if let status = status as? Int {
+                        observer.onNext(status)
+                    }
+                case .pathErr:
+                    observer.onNext(502)
+                default: observer.onNext(502)
+                }
+            }
+            return Disposables.create()
+        }
+    }
 }
+

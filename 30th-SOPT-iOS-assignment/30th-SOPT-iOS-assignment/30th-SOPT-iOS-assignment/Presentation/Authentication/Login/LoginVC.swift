@@ -84,7 +84,7 @@ final class LoginVC: BaseVC {
     }()
     
     // MARK: - Life Cycles
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -101,8 +101,9 @@ final class LoginVC: BaseVC {
     
     override func bind() {
         let input = LoginViewModel.Input(
-            emailTextFieldDidChange: emailTextField.rx.text.orEmpty.asObservable(),
-            passwordTextFieldDidChange: passwordTextField.rx.text.orEmpty.asObservable()
+            emailTextField: emailTextField.rx.text.orEmpty.asObservable(),
+            passwordTextField: passwordTextField.rx.text.orEmpty.asObservable(),
+            loginButtonTapped: loginButton.rx.tap.asObservable()
         )
         
         let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
@@ -121,6 +122,24 @@ final class LoginVC: BaseVC {
             })
             .disposed(by: disposeBag)
         
+        output.loginResult
+            .asDriver(onErrorJustReturn: 502)
+            .drive(onNext: { [weak self] status in
+                switch status {
+                case 409:
+                    self?.makeAlert(title: "로그인 실패", message: "비밀번호가 올바르지 않습니다")
+                case 404:
+                    self?.makeAlert(title: "로그인 실패", message: "존재하지 않는 사용자입니다")
+                case 200:
+                    self?.makeAlert(title: "로그인 성공") { [weak self] UIAlertAction in
+                        self?.presentMainTBC()
+                    }
+                default:
+                    print("ServerErr")
+                }
+            })
+            .disposed(by: disposeBag)
+        
         emailTextField.clearButtonTapped
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { [weak self] isEnabled in
@@ -132,17 +151,26 @@ final class LoginVC: BaseVC {
     // MARK: - Custom Methods
     
     private func presentWelcomeVC() {
-        // TODO: - 동일 택필에서 email 형식인지 username 형식인지 판단하는 비즈니스 로직 뷰모델에 작성하기
-        let nextVC = WelcomeVC(user: User(email: "",
-                                          username: emailTextField.text,
-                                          password: passwordTextField.text))
-        nextVC.modalPresentationStyle = .fullScreen
-        self.present(nextVC, animated: true)
+        
     }
     
     private func pushUsernameVC() {
         let nextVC = UsernameVC()
         self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    private func presentMainTBC() {
+        let nextVC = MainTBC()
+        guard let window = self.view.window else { return }
+        window.addSubview(nextVC.view)
+        nextVC.view.frame.origin = CGPoint(x: 0, y: window.frame.height)
+        
+        UIView.transition(with: nextVC.view, duration: 0.2, options: .curveEaseInOut) {
+            nextVC.view.frame.origin = CGPoint(x: 0, y: 0)
+        } completion: { _ in
+            nextVC.view.removeFromSuperview()
+            window.rootViewController = nextVC
+        }
     }
     
     internal func resetUI() {

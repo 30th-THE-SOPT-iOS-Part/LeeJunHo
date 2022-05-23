@@ -15,6 +15,8 @@ final class WelcomeVC: BaseVC {
     
     // MARK: - Properties
     
+    private let viewModel = WelcomeViewModel()
+    
     private var user: User
     
     private lazy var titleLabel: UILabel = {
@@ -45,9 +47,6 @@ final class WelcomeVC: BaseVC {
     private lazy var completeButton: AuthButton = {
         let bt = AuthButton()
         bt.setTitle("완료하기", for: .normal)
-        bt.addAction(UIAction(handler: { _ in
-            self.tapToMainTBC()
-        }), for: .touchUpInside)
         bt.isEnabled = true
         return bt
     }()
@@ -57,7 +56,7 @@ final class WelcomeVC: BaseVC {
         bt.setTitle("다른 계정으로 로그인하기", for: .normal)
         bt.setTitleColor(UIColor.systemBlue, for: .normal)
         bt.addAction(UIAction(handler: { _ in
-            self.tapToRootVC()
+            self.popToLoginVC()
         }), for: .touchUpInside)
         bt.titleLabel?.font = .systemFont(ofSize: 13)
         return bt
@@ -77,28 +76,42 @@ final class WelcomeVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind()
+    }
+    
+    // MARK: - Bind
+    
+    override func bind() {
+        let input = WelcomeViewModel.Input(name: user.username,
+                                           email: user.email,
+                                           password: user.password,
+                                           completeButtonTapped: completeButton.rx.tap.asObservable())
+        
+        let output = self.viewModel.transform(from: input, disposeBag: self.disposeBag)
+        
+        output.signUpResult
+            .asDriver(onErrorJustReturn: 502)
+            .drive(onNext: { [weak self] status in
+                switch status {
+                case 409:
+                    self?.makeAlert(title: "회원가입 실패", message: "이미 존재하는 아이디입니다.")
+                case 200:
+                    self?.makeAlert(title: "회원가입 성공") { [weak self] UIAlertAction in
+                        self?.popToLoginVC()
+                    }
+                default:
+                    print("ServerErr")
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Custom Methods
     
-    private func tapToRootVC() {
+    private func popToLoginVC() {
         guard let naviVC = self.presentingViewController as? UINavigationController else { return }
         naviVC.popToRootViewController(animated: false)
         self.dismiss(animated: true)
-    }
-    
-    private func tapToMainTBC() {
-        let nextVC = MainTBC()
-        guard let window = self.view.window else { return }
-        window.addSubview(nextVC.view)
-        nextVC.view.frame.origin = CGPoint(x: 0, y: window.frame.height)
-        
-        UIView.transition(with: nextVC.view, duration: 0.2, options: .curveEaseInOut) {
-            nextVC.view.frame.origin = CGPoint(x: 0, y: 0)
-        } completion: { _ in
-            nextVC.view.removeFromSuperview()
-            window.rootViewController = nextVC
-        }
     }
     
     // MARK: - UI & Layout

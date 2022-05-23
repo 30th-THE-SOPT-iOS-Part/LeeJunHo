@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB0BDAA32830A074003A9CD7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EB0BDAA22830A074003A9CD7 /* Alamofire */; };
+		EB0BDAA62830A12E003A9CD7 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAA52830A12E003A9CD7 /* NetworkConstants.swift */; };
+		EB0BDAA82830A172003A9CD7 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */; };
+		EB0BDAAB2830A1D2003A9CD7 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAAA2830A1D2003A9CD7 /* AuthService.swift */; };
+		EB0BDAAD2830A35C003A9CD7 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */; };
 		EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AE727FFDCB9009ACE52 /* LoginUseCase.swift */; };
 		EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */; };
 		EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */; };
@@ -29,6 +34,13 @@
 		EB7FB43F27F81F1200675CED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB43E27F81F1200675CED /* Assets.xcassets */; };
 		EB7FB44227F81F1200675CED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB7FB44027F81F1200675CED /* LaunchScreen.storyboard */; };
 		EB9A3C6C28127EC7009DA924 /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A3C6B28127EC7009DA924 /* MainTBC.swift */; };
+		EBB25FC628311FA5001416D8 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB25FC528311FA5001416D8 /* BaseService.swift */; };
+		EBB25FC92831205A001416D8 /* HeaderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB25FC82831205A001416D8 /* HeaderType.swift */; };
+		EBB25FCB28312199001416D8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB25FCA28312199001416D8 /* Router.swift */; };
+		EBB25FD028312268001416D8 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB25FCF28312268001416D8 /* AuthRouter.swift */; };
+		EBB2605228328A61001416D8 /* SignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2605128328A61001416D8 /* SignIn.swift */; };
+		EBB2605428328A66001416D8 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2605328328A65001416D8 /* SignUp.swift */; };
+		EBB2605628336318001416D8 /* makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB2605528336318001416D8 /* makeAlert.swift */; };
 		EBC07DFD2825181F002C3501 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC07DFC2825181F002C3501 /* ViewModelType.swift */; };
 		EBC07DFF28251837002C3501 /* UITableViewRegisterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC07DFE28251837002C3501 /* UITableViewRegisterable.swift */; };
 		EBC07E0128251889002C3501 /* getClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC07E0028251889002C3501 /* getClassName.swift */; };
@@ -60,6 +72,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB0BDAA52830A12E003A9CD7 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		EB0BDAAA2830A1D2003A9CD7 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
 		EB0C3AE727FFDCB9009ACE52 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		EB0C3AEA2800111C009ACE52 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		EB0C3AEC2800112F009ACE52 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
@@ -84,6 +100,13 @@
 		EB7FB44127F81F1200675CED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB7FB44327F81F1200675CED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB9A3C6B28127EC7009DA924 /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
+		EBB25FC528311FA5001416D8 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
+		EBB25FC82831205A001416D8 /* HeaderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderType.swift; sourceTree = "<group>"; };
+		EBB25FCA28312199001416D8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		EBB25FCF28312268001416D8 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		EBB2605128328A61001416D8 /* SignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignIn.swift; sourceTree = "<group>"; };
+		EBB2605328328A65001416D8 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		EBB2605528336318001416D8 /* makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAlert.swift; sourceTree = "<group>"; };
 		EBC07DFC2825181F002C3501 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		EBC07DFE28251837002C3501 /* UITableViewRegisterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewRegisterable.swift; sourceTree = "<group>"; };
 		EBC07E0028251889002C3501 /* getClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getClassName.swift; sourceTree = "<group>"; };
@@ -115,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB0BDAA32830A074003A9CD7 /* Alamofire in Frameworks */,
 				EBFEA38B27FF736C003FADB7 /* RxSwift in Frameworks */,
 				EBFEA38E27FF737A003FADB7 /* SnapKit in Frameworks */,
 				EBFEA38927FF736C003FADB7 /* RxRelay in Frameworks */,
@@ -125,6 +149,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB0BDAA42830A126003A9CD7 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				EB0BDAA52830A12E003A9CD7 /* NetworkConstants.swift */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		EB0BDAA92830A1A8003A9CD7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				EB0BDAAA2830A1D2003A9CD7 /* AuthService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		EB0C3AE928001102009ACE52 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				EB0C3AF0280063E2009ACE52 /* User.swift */,
+				EBB2605128328A61001416D8 /* SignIn.swift */,
+				EBB2605328328A65001416D8 /* SignUp.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -221,6 +263,25 @@
 				EB9A3C6B28127EC7009DA924 /* MainTBC.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		EBB25FC728312034001416D8 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				EBB25FC82831205A001416D8 /* HeaderType.swift */,
+				EBB25FCA28312199001416D8 /* Router.swift */,
+				EBB25FC528311FA5001416D8 /* BaseService.swift */,
+				EB0BDAA72830A172003A9CD7 /* NetworkResult.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		EBB25FCE28312257001416D8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				EBB25FCF28312268001416D8 /* AuthRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		EBC07E0428251BA5002C3501 /* Cells */ = {
@@ -375,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC07E0028251889002C3501 /* getClassName.swift */,
+				EBB2605528336318001416D8 /* makeAlert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -517,6 +579,10 @@
 		EBFEA3A527FF7A05003FADB7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				EBB25FCE28312257001416D8 /* Router */,
+				EBB25FC728312034001416D8 /* Foundation */,
+				EB0BDAA92830A1A8003A9CD7 /* Service */,
+				EB0BDAA42830A126003A9CD7 /* Environment */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -526,6 +592,7 @@
 			children = (
 				EBC07E0E28252790002C3501 /* Home */,
 				EB0C3AEE280063CC009ACE52 /* Authentication */,
+				EB0BDAAC2830A35C003A9CD7 /* GeneralResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -568,6 +635,7 @@
 				EBFEA38827FF736C003FADB7 /* RxRelay */,
 				EBFEA38A27FF736C003FADB7 /* RxSwift */,
 				EBFEA38D27FF737A003FADB7 /* SnapKit */,
+				EB0BDAA22830A074003A9CD7 /* Alamofire */,
 			);
 			productName = "30th-SOPT-iOS-assignment";
 			productReference = EB7FB43227F81F1100675CED /* 30th-SOPT-iOS-assignment.app */;
@@ -600,6 +668,7 @@
 			packageReferences = (
 				EBFEA38527FF736C003FADB7 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				EBFEA38C27FF737A003FADB7 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EB0BDAA12830A074003A9CD7 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = EB7FB43327F81F1100675CED /* Products */;
 			projectDirPath = "";
@@ -635,19 +704,25 @@
 				EBC07E03282518DA002C3501 /* UICollectionViewRegisterable.swift in Sources */,
 				EBC07E0B28251CEA002C3501 /* SotryListTVC.swift in Sources */,
 				EBC1871A27FF9128007016F0 /* AuthButton.swift in Sources */,
+				EBB2605428328A66001416D8 /* SignUp.swift in Sources */,
 				EBC07DFF28251837002C3501 /* UITableViewRegisterable.swift in Sources */,
 				EBC07E0D28251D31002C3501 /* HomePostTVC.swift in Sources */,
 				EBC1871227FF8F64007016F0 /* PasswordViewModel.swift in Sources */,
+				EBB25FC92831205A001416D8 /* HeaderType.swift in Sources */,
 				EBC07E10282527B5002C3501 /* HomeData.swift in Sources */,
+				EB0BDAAD2830A35C003A9CD7 /* GeneralResponse.swift in Sources */,
 				EBC1870427FF8665007016F0 /* UIView+.swift in Sources */,
 				EBC1870A27FF8E2E007016F0 /* ImageLiterals.swift in Sources */,
 				EBC1871027FF8F5D007016F0 /* PasswordVC.swift in Sources */,
 				EBC07E0728251C64002C3501 /* HomeViewModel.swift in Sources */,
 				EB7FB43627F81F1100675CED /* AppDelegate.swift in Sources */,
+				EBB2605228328A61001416D8 /* SignIn.swift in Sources */,
+				EBB25FD028312268001416D8 /* AuthRouter.swift in Sources */,
 				EB0C3AF3280094A0009ACE52 /* BaseNVC.swift in Sources */,
 				EB67C6A2281285370041DCFD /* SearchVC.swift in Sources */,
 				EBC07DFD2825181F002C3501 /* ViewModelType.swift in Sources */,
 				EBC07E0128251889002C3501 /* getClassName.swift in Sources */,
+				EB0BDAAB2830A1D2003A9CD7 /* AuthService.swift in Sources */,
 				EB7FB43827F81F1100675CED /* SceneDelegate.swift in Sources */,
 				EB0C3AF528009A10009ACE52 /* UsernameUseCase.swift in Sources */,
 				EB0C3AED2800112F009ACE52 /* WelcomeViewModel.swift in Sources */,
@@ -657,20 +732,25 @@
 				EB67C6A6281285420041DCFD /* ShopVC.swift in Sources */,
 				EBC1870227FF8505007016F0 /* LoginViewModel.swift in Sources */,
 				EB67C6A42812853D0041DCFD /* ReelsVC.swift in Sources */,
+				EBB25FCB28312199001416D8 /* Router.swift in Sources */,
 				EB67C6A82812854A0041DCFD /* ProfileVC.swift in Sources */,
+				EB0BDAA82830A172003A9CD7 /* NetworkResult.swift in Sources */,
 				EB0FE3C82801E0A9005D6DBA /* UITextField+.swift in Sources */,
 				EBC07E1428252986002C3501 /* HomePostData.swift in Sources */,
 				EBC1870C27FF8F4C007016F0 /* UsernameVC.swift in Sources */,
 				EBC07E1228252981002C3501 /* HomeStoryData.swift in Sources */,
+				EBB2605628336318001416D8 /* makeAlert.swift in Sources */,
 				EB0FE3CA2801E83B005D6DBA /* UILabel+.swift in Sources */,
 				EBC186FB27FF7B37007016F0 /* BaseVC.swift in Sources */,
 				EB0C3AF728009A18009ACE52 /* PasswordUseCase.swift in Sources */,
 				EB0FE3D428048D49005D6DBA /* Reactive+.swift in Sources */,
 				EB0C3AF1280063E3009ACE52 /* User.swift in Sources */,
 				EBC1870727FF8783007016F0 /* ModuleFactory.swift in Sources */,
+				EB0BDAA62830A12E003A9CD7 /* NetworkConstants.swift in Sources */,
 				EB0C3AE827FFDCB9009ACE52 /* LoginUseCase.swift in Sources */,
 				EB0C3AEB2800111C009ACE52 /* WelcomeVC.swift in Sources */,
 				EB0FE3C62801E044005D6DBA /* UIStackView+.swift in Sources */,
+				EBB25FC628311FA5001416D8 /* BaseService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +964,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB0BDAA12830A074003A9CD7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		EBFEA38527FF736C003FADB7 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -903,6 +991,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB0BDAA22830A074003A9CD7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB0BDAA12830A074003A9CD7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		EBFEA38627FF736C003FADB7 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBFEA38527FF736C003FADB7 /* XCRemoteSwiftPackageReference "RxSwift" */;

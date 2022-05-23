@@ -60,14 +60,17 @@ import RxCocoa
 
 // MARK: - Usecase 이용 뷰모델
 final class LoginViewModel {
+
     struct Input {
-        let emailTextFieldDidChange: Observable<String>
-        let passwordTextFieldDidChange: Observable<String>
+        let emailTextField: Observable<String>
+        let passwordTextField: Observable<String>
+        let loginButtonTapped: Observable<Void>
     }
 
     struct Output {
         var loginButtonEnable = PublishRelay<Bool>()
         var clearButtonHidden = PublishRelay<Bool>()
+        var loginResult: Observable<Int>
     }
 
     // MARK: - Properties
@@ -88,13 +91,14 @@ final class LoginViewModel {
     }
 
     private func configureInput(_ input: Input, disposeBag: DisposeBag) {
-        input.emailTextFieldDidChange
+        
+        input.emailTextField
             .subscribe(onNext: { [weak self] text in
                 self?.loginUseCase.setEmailText(emailText: text)
             })
             .disposed(by: disposeBag)
 
-        input.passwordTextFieldDidChange
+        input.passwordTextField
             .subscribe(onNext: { [weak self] text in
                 self?.loginUseCase.setPasswordText(passwordText: text)
             })
@@ -102,8 +106,16 @@ final class LoginViewModel {
     }
 
     private func createOutput(from input: Input, disposeBag: DisposeBag) -> Output {
-        let output = Output()
-
+        let requestData = Observable.combineLatest(input.emailTextField, input.passwordTextField)
+        
+        let loginResult = input.loginButtonTapped.withLatestFrom(requestData)
+            .flatMap { email, password in
+                return self.loginUseCase.requestSignIn(email: email, password: password)
+            }
+            .map { $0 }
+        
+        let output = Output(loginResult: loginResult)
+        
         loginUseCase.loginButtonState
             .asDriver(onErrorJustReturn: true)
             .drive(onNext: { activation in
@@ -117,7 +129,7 @@ final class LoginViewModel {
                 output.clearButtonHidden.accept(hiddenStatus)
             })
             .disposed(by: disposeBag)
-
+    
         return output
     }
 }
