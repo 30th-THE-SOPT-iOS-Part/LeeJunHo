@@ -27,7 +27,7 @@ extension Router {
         
         urlRequest = self.makeHeaderForRequest(to: urlRequest)
         
-        return try self.makePrameterForRequest(to: urlRequest, with: url)
+        return try self.makeParameterForRequest(to: urlRequest, with: url)
     }
     
     private func makeHeaderForRequest(to request: URLRequest) -> URLRequest {
@@ -53,7 +53,7 @@ extension Router {
         return request
     }
     
-    private func makePrameterForRequest(to request: URLRequest, with url: URL) throws -> URLRequest {
+    private func makeParameterForRequest(to request: URLRequest, with url: URL) throws -> URLRequest {
         var request = request
         
         switch parameters {

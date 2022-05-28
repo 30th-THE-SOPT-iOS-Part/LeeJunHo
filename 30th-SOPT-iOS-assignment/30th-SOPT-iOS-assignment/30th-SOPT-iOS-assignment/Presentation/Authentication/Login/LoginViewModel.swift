@@ -112,7 +112,6 @@ final class LoginViewModel {
             .flatMap { email, password in
                 return self.loginUseCase.requestSignIn(email: email, password: password)
             }
-            .map { $0 }
         
         let output = Output(loginResult: loginResult)
         
