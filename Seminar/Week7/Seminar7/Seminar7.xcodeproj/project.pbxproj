@@ -27,6 +27,7 @@
 		EB0FD5BC2841F29500C25D21 /* MockView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0FD5BB2841F29500C25D21 /* MockView.storyboard */; };
 		EB0FD5C02841F34E00C25D21 /* LoginMock.json in Resources */ = {isa = PBXBuildFile; fileRef = EB0FD5BF2841F34E00C25D21 /* LoginMock.json */; };
 		EB0FD5C22841F38B00C25D21 /* LoginMockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0FD5C12841F38B00C25D21 /* LoginMockModel.swift */; };
+		EB0FD5C42841FB7F00C25D21 /* Notification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB0FD5C32841FB7F00C25D21 /* Notification.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		EB0FD5BB2841F29500C25D21 /* MockView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MockView.storyboard; sourceTree = "<group>"; };
 		EB0FD5BF2841F34E00C25D21 /* LoginMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LoginMock.json; sourceTree = "<group>"; };
 		EB0FD5C12841F38B00C25D21 /* LoginMockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMockModel.swift; sourceTree = "<group>"; };
+		EB0FD5C32841FB7F00C25D21 /* Notification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notification.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				EB0FD5A12841EADD00C25D21 /* FirstViewController.swift */,
 				EB0FD5A32841EAE200C25D21 /* SecondVIewController.swift */,
 				EB0FD5A52841EAEE00C25D21 /* ThirdViewController.swift */,
+				EB0FD5C32841FB7F00C25D21 /* Notification.storyboard */,
 			);
 			path = NotificationCenter;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				EB0FD5AC2841EB1100C25D21 /* DataTransfer.storyboard in Resources */,
 				EB0FD5952841EA2500C25D21 /* Assets.xcassets in Resources */,
 				EB0FD5932841EA2400C25D21 /* Main.storyboard in Resources */,
+				EB0FD5C42841FB7F00C25D21 /* Notification.storyboard in Resources */,
 				EB0FD5AF2841F01E00C25D21 /* Todos.json in Resources */,
 				EB0FD5C02841F34E00C25D21 /* LoginMock.json in Resources */,
 			);

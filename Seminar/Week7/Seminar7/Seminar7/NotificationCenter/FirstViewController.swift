@@ -14,10 +14,10 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func fireOnTapped(_ sender: UIButton) {
-        
-        NotificationCenter.default.post(name: Notification.Name("Fire"), object: "불 났어요!!")
+        NotificationCenter.default.post(name: Notification.Name("Fire"), object: self, userInfo: ["content": 3])
     }
 
     @IBAction func fireOffTapped(_ sender: UIButton) {
+        NotificationCenter.default.post(name:Notification.Name("FireOff"), object: self, userInfo: ["content": 4])
     }
 }
