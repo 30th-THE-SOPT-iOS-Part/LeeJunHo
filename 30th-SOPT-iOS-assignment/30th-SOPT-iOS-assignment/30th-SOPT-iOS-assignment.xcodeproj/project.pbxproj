@@ -276,12 +276,12 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
-		EBB25FCE28312257001416D8 /* Router */ = {
+		EBB25FCE28312257001416D8 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
 				EBB25FCF28312268001416D8 /* AuthRouter.swift */,
 			);
-			path = Router;
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		EBC07E0428251BA5002C3501 /* Cells */ = {
@@ -579,8 +579,8 @@
 		EBFEA3A527FF7A05003FADB7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				EBB25FCE28312257001416D8 /* Router */,
 				EBB25FC728312034001416D8 /* Foundation */,
+				EBB25FCE28312257001416D8 /* Routers */,
 				EB0BDAA92830A1A8003A9CD7 /* Service */,
 				EB0BDAA42830A126003A9CD7 /* Environment */,
 			);

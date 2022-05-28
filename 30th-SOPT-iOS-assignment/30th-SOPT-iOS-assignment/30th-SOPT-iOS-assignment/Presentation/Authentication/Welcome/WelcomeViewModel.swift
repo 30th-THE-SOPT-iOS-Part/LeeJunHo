@@ -48,7 +48,6 @@ final class WelcomeViewModel {
             .flatMap {
                 return self.welcomeUseCase.requestSignUp(email: input.email, name: input.name, password: input.password)
             }
-            .map { $0 }
         
         let output = Output(signUpResult: signUpResult)
 
