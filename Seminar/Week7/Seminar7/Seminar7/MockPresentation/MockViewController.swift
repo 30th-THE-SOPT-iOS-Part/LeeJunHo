@@ -22,7 +22,7 @@ class MockViewController: UIViewController {
         
         tableView.dataSource = self
         
-        guard let data = MockParser.load([Todo].self, from: "Todo") else { return }
+        guard let data = MockParser.load(LoginMockModel.self, from: "LoginMock") else { return }
         print(data)
     }
 

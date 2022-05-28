@@ -1,0 +1,17 @@
+/* 
+  LoginMock.json
+  Seminar7
+
+  Created by Junho Lee on 2022/05/28.
+  
+*/
+
+{
+    "status": 200,
+    "success": true,
+    "message": "로그인 성공",
+    "data": {
+        "name": "김태현",
+        "email": "iOS@sopt.org"
+    }
+}
