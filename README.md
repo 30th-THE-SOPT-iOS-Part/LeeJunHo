@@ -48,9 +48,9 @@
 
  이 부분은 초기 목표와 가장 달라진 부분인데, Moya가 아니라 Alamofire를 BaseAPI와 BaseService를 이용하여 모듈화했다. 초기에 Moya를 이용하려고 했던 이유는 앱잼에서 가장 사용하기 쉬운 서버통신 라이브러리가 Moya라고 생각해서였는데, Spark 프로젝트 중에 Moya가 너무 두텁게 Layering되어 있고, URLSession에 대한 원론적인 접근 및 이해를 막는다고 생각하여 한 수준 낮은 Alamofire를 채택하게 되었다. Alamofire를 모듈화하면서 느낀 점은, 확실히 서버통신에 대한 이해가 URLSession -> Alamofire -> Moya 순으로 가야 Moya도 잘 쓸 수 있겠다는 점이다. 이에 대한 내용은 블로그에 정리해 놓았다.
 
-[Alamofire를 Moya처럼 사용해보자! By Router Pattern (1편 - Foundation Setting)](https://jazz-the-it.tistory.com/25)
-[Alamofire를 Moya처럼 사용해보자! By Router Pattern (2편 - Services, Routers 구현)](https://jazz-the-it.tistory.com/26)
-[Alamofire를 Moya처럼 사용해보자! By Router Pattern (3편 - body, queryBody, requestPlain, Multipart 구현)](https://jazz-the-it.tistory.com/35)
+[Alamofire를 Moya처럼 사용해보자! By Router Pattern (1편 - Foundation Setting)](https://jazz-the-it.tistory.com/25) <br>
+[Alamofire를 Moya처럼 사용해보자! By Router Pattern (2편 - Services, Routers 구현)](https://jazz-the-it.tistory.com/26) <br>
+[Alamofire를 Moya처럼 사용해보자! By Router Pattern (3편 - body, queryBody, requestPlain, Multipart 구현)](https://jazz-the-it.tistory.com/35) <br>
 [Alamofire를 Moya처럼 사용해보자! By Router Pattern (4편 - EventLogger로 통신 결과 확인하기)](https://jazz-the-it.tistory.com/36)
 
 **5. Custom UI Component**
